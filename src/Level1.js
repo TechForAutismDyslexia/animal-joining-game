@@ -1,15 +1,19 @@
-//hippo
-
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 const Level1 = ({ onNext, onPrev }) => {
   const pixiContainer = useRef(null);
+  const [trialCount, setTrialCount] = useState(0);
+  const [startTime, setStartTime] = useState(null);
+  const [timeTaken, setTimeTaken] = useState(null);
 
   useEffect(() => {
     if (!window.PIXI || !window.confetti) {
       console.error('PIXI or confetti not loaded');
       return;
     }
+
+    // Record the start time when the component mounts
+    setStartTime(performance.now());
 
     const app = new window.PIXI.Application({
       width: 1800,
@@ -67,17 +71,20 @@ const Level1 = ({ onNext, onPrev }) => {
     }
 
     function onDragEnd() {
+      setTrialCount(prevCount => prevCount + 1); // Increment trial count
       this.dragging = false;
       this.data = null;
 
       if (Math.abs(image2.x - 500) < 10 && Math.abs(image2.y - 100) < 10) {
         image2.x = 500;
         image2.y = 100;
-      }
 
-      if (Math.abs(image2.x - 500) < 10 && Math.abs(image2.y - 100) < 10) {
+        // Calculate the time taken to complete the level
+        const endTime = performance.now();
+        const duration = Math.round((endTime - startTime) / 1000); // Duration in seconds
+        setTimeTaken(duration);
+
         window.confetti();
-        
       }
     }
 
@@ -86,7 +93,13 @@ const Level1 = ({ onNext, onPrev }) => {
     };
   }, [onNext]);
 
-  return <div ref={pixiContainer}></div>;
+  return (
+    <div>
+      <div ref={pixiContainer}></div>
+      <div>Trials: {trialCount}</div> {/* Display the trial count */}
+      {timeTaken !== null && <div>Time Taken: {timeTaken} seconds</div>} {/* Display the time taken */}
+    </div>
+  );
 };
 
 export default Level1;
