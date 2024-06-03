@@ -3,6 +3,8 @@ import React, { useEffect, useRef, useState } from 'react';
 const Level3 = ({ onNext, onPrev }) => {
   const pixiContainer = useRef(null);
   const [trialCount, setTrialCount] = useState(0);
+  const [startTime, setStartTime] = useState(null);
+  const [timeTaken, setTimeTaken] = useState(null);
 
 
   useEffect(() => {
@@ -10,6 +12,8 @@ const Level3 = ({ onNext, onPrev }) => {
       console.error('PIXI, confetti, or TWEEN not loaded');
       return;
     }
+    // Record the start time when the component mounts
+    setStartTime(performance.now());
 
     const app = new window.PIXI.Application({
       width: 1800,
@@ -104,6 +108,10 @@ const Level3 = ({ onNext, onPrev }) => {
 
                 // Check if images are in a specific position
                 if (Math.abs(image2.x - 500) < 10 && Math.abs(image2.y - 100) < 10 ) {
+                  // Calculate the time taken to complete the level
+        const endTime = performance.now();
+        const duration = Math.round((endTime - startTime) / 1000); // Duration in seconds
+        setTimeTaken(duration);
                     // Trigger confetti effect
                     window.confetti();
                 }
@@ -140,6 +148,7 @@ const Level3 = ({ onNext, onPrev }) => {
     <div>
       <div ref={pixiContainer}></div>
       <div>Trials: {trialCount}</div> {/* Display the trial count */}
+      {timeTaken !== null && <div>Time Taken: {timeTaken} seconds</div>} {/* Display the time taken */}
     </div>
   );
 };
