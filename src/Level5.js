@@ -3,12 +3,17 @@ import React, { useEffect, useRef, useState } from 'react';
 const Level4 = ({ onNext, onPrev }) => {
   const pixiContainer = useRef(null);
   const [trialCount, setTrialCount] = useState(0);
+  const [startTime, setStartTime] = useState(null);
+  const [timeTaken, setTimeTaken] = useState(null);
 
   useEffect(() => {
     if (!window.PIXI || !window.confetti || !window.TWEEN) {
       console.error('PIXI, confetti, or TWEEN not loaded');
       return;
     }
+
+    // Record the start time when the component mounts
+    setStartTime(performance.now());
 
     const app = new window.PIXI.Application({
       width: 1800,
@@ -135,27 +140,15 @@ const Level4 = ({ onNext, onPrev }) => {
                 }
                 // Check if images are in a specific position
                 if (Math.abs(image1.x - 500) < 5 && Math.abs(image1.y - 100) < 5 && Math.abs(image2.x - 500) < 5 && Math.abs(image2.y - 184) < 5 && Math.abs(image3.x - 500) < 5 && Math.abs(image3.y - 267) < 5 && Math.abs(image4.x - 500) < 5 && Math.abs(image4.y - 350) < 5) {
+                    // Calculate the time taken to complete the level
+                const endTime = performance.now();
+                const duration = Math.round((endTime - startTime) / 1000); // Duration in seconds
+                setTimeTaken(duration);
                     // Trigger confetti effect
                     window.confetti();
                    
                 }
             }
-
-    // function shakeAndResetDeer() {
-    //   const shakeAmplitude = 10;
-    //   const shakeDuration = 100;
-
-    //   const shake = new window.TWEEN.Tween(deer.position)
-    //     .to({ x: deer.x + shakeAmplitude }, shakeDuration)
-    //     .yoyo(true)
-    //     .repeat(5)
-    //     .onComplete(() => {
-    //       new window.TWEEN.Tween(deer.position)
-    //         .to({ x: originalDeerPosition.x, y: originalDeerPosition.y }, 500)
-    //         .start();
-    //     })
-    //     .start();
-    // }
 
     function animate(time) {
       requestAnimationFrame(animate);
@@ -172,6 +165,7 @@ const Level4 = ({ onNext, onPrev }) => {
     <div>
       <div ref={pixiContainer}></div>
       <div>Trials: {trialCount}</div> {/* Display the trial count */}
+      {timeTaken !== null && <div>Time Taken: {timeTaken} seconds</div>} {/* Display the time taken */}
     </div>
   );
 };

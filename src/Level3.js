@@ -1,7 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 const Level3 = ({ onNext, onPrev }) => {
   const pixiContainer = useRef(null);
+  const [trialCount, setTrialCount] = useState(0);
+
 
   useEffect(() => {
     if (!window.PIXI || !window.confetti || !window.TWEEN) {
@@ -87,6 +89,8 @@ const Level3 = ({ onNext, onPrev }) => {
             }
 
             function onDragEnd() {
+              setTrialCount(prevCount => prevCount + 1); // Increment trial count
+
                 this.dragging = false;
                 this.data = null;
 
@@ -132,7 +136,12 @@ const Level3 = ({ onNext, onPrev }) => {
     };
   }, [onNext]);
 
-  return <div ref={pixiContainer}></div>;
+  return (
+    <div>
+      <div ref={pixiContainer}></div>
+      <div>Trials: {trialCount}</div> {/* Display the trial count */}
+    </div>
+  );
 };
 
 export default Level3;

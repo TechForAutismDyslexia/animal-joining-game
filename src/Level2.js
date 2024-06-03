@@ -1,7 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 const Level2 = ({ onNext, onPrev }) => {
   const pixiContainer = useRef(null);
+  const [trialCount, setTrialCount] = useState(0);
+  const [startTime, setStartTime] = useState(null);
+  const [timeTaken, setTimeTaken] = useState(null);
 
   useEffect(() => {
     if (!window.PIXI || !window.confetti || !window.TWEEN) {
@@ -9,6 +12,7 @@ const Level2 = ({ onNext, onPrev }) => {
       return;
     }
 
+    // Initialize the PIXI application
     const app = new window.PIXI.Application({
       width: 1800,
       height: 600,
@@ -18,6 +22,11 @@ const Level2 = ({ onNext, onPrev }) => {
     if (pixiContainer.current) {
       pixiContainer.current.appendChild(app.view);
     }
+
+    // Record the start time when the component mounts
+    setStartTime(performance.now());
+    setTimeTaken(null);
+    setTrialCount(0);
 
     app.loader
       .add('image1', 'images/head.png')
@@ -79,6 +88,7 @@ const Level2 = ({ onNext, onPrev }) => {
     }
 
     function onDragEnd() {
+      setTrialCount(prevCount => prevCount + 1); // Increment trial count
       this.dragging = false;
       this.data = null;
 
@@ -91,6 +101,10 @@ const Level2 = ({ onNext, onPrev }) => {
         }
 
         if (Math.abs(image1.x - 700) < 10 && Math.abs(image1.y - 100) < 10 && Math.abs(image2.x - 500) < 10 && Math.abs(image2.y - 100) < 10) {
+          // Calculate the time taken to complete the level
+          const endTime = performance.now();
+          const duration = Math.round((endTime - startTime) / 1000); // Duration in seconds
+          setTimeTaken(duration);
           window.confetti();
         }
       }
@@ -123,7 +137,13 @@ const Level2 = ({ onNext, onPrev }) => {
     };
   }, [onNext]);
 
-  return <div ref={pixiContainer}></div>;
+  return (
+    <div>
+      <div ref={pixiContainer}></div>
+      <div>Trials: {trialCount}</div> {/* Display the trial count */}
+      {timeTaken !== null && <div>Time Taken: {timeTaken} seconds</div>} {/* Display the time taken */}
+    </div>
+  );
 };
 
 export default Level2;
