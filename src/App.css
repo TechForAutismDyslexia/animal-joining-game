@@ -61,54 +61,12 @@ h1 {
   box-shadow: #422800 2px 2px 0 0;
   transform: translate(2px, 2px);
 }
-/* 
-@media (min-width: 768px) {
-  .button-74 {
-    min-width: 120px;
-    padding: 0 25px;
-  }
- } */
- /*
-.app-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+
+
+.audio-player {
+  position: absolute;
+  top: 40px;
+  right: 10px;
 }
 
-.button-container {
-  margin-top: 20px;
-  text-align: center;
-}
-
-
-body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  overflow: hidden; 
-}
-
-#root {
-  height: 100%;
-}
-
-.button-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.button-74 {
-  margin: 0 10px;
-}
-
-.level-container {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
+/* Add any additional CSS styles as needed */
