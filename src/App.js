@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+
+import React, { useState, useEffect } from 'react';
 import Level1 from './Level1';
 import Level2 from './Level2';
 import './App.css';
@@ -6,17 +7,28 @@ import './App.css';
 import Level3 from './Level3';
 import Level4 from './Level4';
 
-const levels = [Level1, Level2, Level3,Level4/* ... */];
+const levels = [Level1, Level2, Level3, Level4/* ... */];
 
 const App = () => {
   const [currentLevel, setCurrentLevel] = useState(0); // Use index (0-based)
+  const [timer, setTimer] = useState(0);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setTimer(prevTimer => prevTimer + 1);
+    }, 1000);
+
+    return () => clearInterval(intervalId);
+  }, [currentLevel]);
 
   const nextLevel = () => {
-    setCurrentLevel((prevLevel) => Math.min(prevLevel + 1, levels.length - 1));
+    setCurrentLevel(prevLevel => Math.min(prevLevel + 1, levels.length - 1));
+    setTimer(0); // Reset timer when moving to the next level
   };
 
   const prevLevel = () => {
-    setCurrentLevel((prevLevel) => Math.max(prevLevel - 1, 0));
+    setCurrentLevel(prevLevel => Math.max(prevLevel - 1, 0));
+    setTimer(0); // Reset timer when moving to the previous level
   };
 
   const renderLevel = () => {
@@ -26,18 +38,29 @@ const App = () => {
 
   return (
     <div>
-      <h1 class="heading" style={{ textAlign: 'center' }}>Let's Play</h1>
-      {renderLevel()}
-      <div style={{ textAlign: 'center', marginTop: '0px' }}>
-        <button class="button-74" onClick={prevLevel} disabled={currentLevel === 0}>
+      {/* <h4>lets play</h4> */}
+      <div style={{ position: 'absolute', top: '10px', right: '10px', fontSize: '30px' }}>
+        Timer: {formatTime(timer)}
+      </div>
+      <div className="button-container">
+        <button className="button-74" onClick={prevLevel} disabled={currentLevel === 0}>
           Previous
-        </button>&nbsp;&nbsp;&nbsp;
-        <button  class="button-74" onClick={nextLevel} disabled={currentLevel === levels.length - 1}>
+        </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button className="button-74" onClick={nextLevel} disabled={currentLevel === levels.length - 1}>
           Next
         </button>
       </div>
+      {renderLevel()}
     </div>
   );
 };
 
+// Function to format time as MM:SS
+const formatTime = (seconds) => {
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = seconds % 60;
+  return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
+};
+
 export default App;
+

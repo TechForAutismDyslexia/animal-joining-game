@@ -146,39 +146,32 @@
 //   );
 // };
 
-// // export default Level2;
+// // // export default Level2;
 
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import Draggable from 'react-draggable';
 
 const Level2 = ({ onNext, onPrev }) => {
   const [trialCount, setTrialCount] = useState(0);
-  const [startTime, setStartTime] = useState(null);
-  const [timeTaken, setTimeTaken] = useState(null);
-  const [headPosition, setHeadPosition] = useState({ x: 1200, y: 280 });
-  const [deerPosition, setDeerPosition] = useState({ x: 1200, y: 0 });
-  const originalDeerPosition = { x: 1200, y: 0 };
+  const [headPosition, setHeadPosition] = useState({ x: 900, y: 280 });
+  const [deerPosition, setDeerPosition] = useState({ x: 900, y: 0 });
+  const originalDeerPosition = { x: 900, y: 0 };
   const tailPosition = { x: 500, y: 100 }; // Fixed position for the tail
   const headShadowPosition = { x: 644, y: 100 };
 
   const headRef = useRef(null);
   const deerRef = useRef(null);
 
-  useEffect(() => {
-    setStartTime(performance.now());
-    setTimeTaken(null);
-    setTrialCount(0);
-  }, [onNext]);
+  const incrementTrialCount = () => {
+    setTrialCount(prevCount => prevCount + 1);
+  };
 
   const onStopHead = (e, data) => {
-    setTrialCount(prevCount => prevCount + 1);
+    incrementTrialCount(); // Increment trial count when drag is stopped
     const { x, y } = data;
 
     if (Math.abs(x - headShadowPosition.x) < 10 && Math.abs(y - headShadowPosition.y) < 10) {
       setHeadPosition(headShadowPosition);
-      const endTime = performance.now();
-      const duration = Math.round((endTime - startTime) / 1000);
-      setTimeTaken(duration);
       window.confetti();
     } else {
       setHeadPosition({ x, y });
@@ -186,12 +179,11 @@ const Level2 = ({ onNext, onPrev }) => {
   };
 
   const onStopDeer = (e, data) => {
-    setTrialCount(prevCount => prevCount + 1);
+    incrementTrialCount(); // Increment trial count when drag is stopped
     shakeAndResetDeer();
   };
 
   const shakeAndResetDeer = () => {
-    // Simple shake animation
     const shakeAmplitude = 10;
     const shakeDuration = 100;
     let shakeCount = 0;
@@ -215,12 +207,12 @@ const Level2 = ({ onNext, onPrev }) => {
 
   return (
     <div>
-      <div style={{ position: 'relative', width: '800px', height: '600px', backgroundColor: '#D8F7F2' }}>
+      <div style={{ position: 'relative', width: '800px', height: '500px', backgroundColor: '#D8F7F2' }}>
         <div
           style={{
             position: 'absolute',
-            width: '256px', // Set the correct width for the image
-            height: '256px', // Set the correct height for the image
+            width: '256px',
+            height: '256px',
             background: 'url(images/tail.png) no-repeat',
             backgroundSize: 'contain',
             left: `${tailPosition.x}px`,
@@ -230,8 +222,8 @@ const Level2 = ({ onNext, onPrev }) => {
         <div
           style={{
             position: 'absolute',
-            width: '256px', // Set the correct width for the image
-            height: '256px', // Set the correct height for the image
+            width: '256px',
+            height: '256px',
             background: 'url(images/headshad.png) no-repeat',
             backgroundSize: 'contain',
             left: `${headShadowPosition.x}px`,
@@ -272,7 +264,6 @@ const Level2 = ({ onNext, onPrev }) => {
         </Draggable>
       </div>
       <div>Trials: {trialCount}</div>
-      {timeTaken !== null && <div>Time Taken: {timeTaken} seconds</div>}
     </div>
   );
 };

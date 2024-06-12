@@ -1,87 +1,141 @@
 
-import React, { useEffect, useState } from 'react';
+// import React, { useEffect, useState } from 'react';
+// import Draggable from 'react-draggable';
+// import confetti from 'canvas-confetti';
+
+// const Level1 = ({ onNext, onPrev }) => {
+//   const [trialCount, setTrialCount] = useState(0);
+//   const [confettiTriggered, setConfettiTriggered] = useState(false);
+
+//   const triggerConfetti = () => {
+//     confetti({
+//       particleCount: 300,
+//       spread: 160,
+//       origin: { y: 0.6 },
+//     });
+//     setConfettiTriggered(true); // Set confetti triggered to true
+//   };
+
+//   const handleDragStop = (e, data) => {
+//     setTrialCount((prevCount) => prevCount + 1); // Increment trial count
+
+//     // Check if the element is within the target area
+//     const targetX = 450;
+//     const targetY = 0;
+//     const tolerance = 20;
+
+//     if (Math.abs(data.x - targetX) < tolerance && Math.abs(data.y - targetY) < tolerance) {
+//       // Snap to target position
+//       e.target.style.transform = `translate(${targetX}px, ${targetY}px)`;
+
+//       // Trigger confetti
+//       triggerConfetti();
+//     }
+//   };
+
+//   return (
+//     <div>
+      
+//       <div style={{ width: '800px', height: '600px', backgroundColor: '#D8F7F2', position: 'relative' }}>
+//         <img
+//           src="images/hippo-splitshad.png"
+//           alt="shadow"
+//           style={{ position: 'absolute', left: '500px', top: '100px' }}
+//         />
+//         <img
+//           src="images/hippoback.png"
+//           alt="image1"
+//           style={{ position: 'absolute', left: '842px', top: '100px' }}
+//         />
+//         <Draggable onStop={handleDragStop}>
+//           <img
+//             src="images/hippofront.png"
+//             alt="image2"
+//             style={{ position: 'absolute', left: '50px', top: '100px', cursor: 'pointer' }}
+//           />
+//         </Draggable>
+//       </div>
+//       <div>Trials: {trialCount}</div> {/* Display the trial count */}
+//     </div>
+//   );
+// };
+
+// export default Level1;
+
+
+import React, { useState, useRef } from 'react';
 import Draggable from 'react-draggable';
-import confetti from 'canvas-confetti';
 
 const Level1 = ({ onNext, onPrev }) => {
   const [trialCount, setTrialCount] = useState(0);
-  const [startTime, setStartTime] = useState(null);
-  const [timeTaken, setTimeTaken] = useState(null);
-  const [elapsedTime, setElapsedTime] = useState(0);
-  const [confettiTriggered, setConfettiTriggered] = useState(false);
+  const [headPosition, setHeadPosition] = useState({ x: 100, y: 100 });
+  const tailPosition = { x: 688, y: 100 }; // Fixed position for the tail
+  const headShadowPosition = { x: 444, y: 100 };
 
-  useEffect(() => {
-    // Record the start time when the component mounts
-    setStartTime(performance.now());
+  const headRef = useRef(null);
 
-    // Update elapsed time every second
-    const interval = setInterval(() => {
-      if (startTime && !confettiTriggered) {
-        setElapsedTime(Math.round((performance.now() - startTime) / 1000));
-      }
-    }, 1000);
-
-    // Clean up interval on component unmount
-    return () => clearInterval(interval);
-  }, [startTime, confettiTriggered]);
-
-  const triggerConfetti = () => {
-    confetti({
-      particleCount: 300,
-      spread: 160,
-      origin: { y: 0.6 },
-    });
-    setConfettiTriggered(true); // Set confetti triggered to true
+  const incrementTrialCount = () => {
+    setTrialCount(prevCount => prevCount + 1);
   };
 
-  const handleDragStop = (e, data) => {
-    setTrialCount((prevCount) => prevCount + 1); // Increment trial count
+  const onStopHead = (e, data) => {
+    incrementTrialCount(); // Increment trial count when drag is stopped
+    const { x, y } = data;
 
-    // Check if the element is within the target area
-    const targetX = 450;
-    const targetY = 0;
-    const tolerance = 20;
-
-    if (Math.abs(data.x - targetX) < tolerance && Math.abs(data.y - targetY) < tolerance) {
-      // Snap to target position
-      e.target.style.transform = `translate(${targetX}px, ${targetY}px)`;
-
-      // Calculate the time taken to complete the level
-      const endTime = performance.now();
-      const duration = Math.round((endTime - startTime) / 1000); // Duration in seconds
-      setTimeTaken(duration);
-
-      // Trigger confetti
-      triggerConfetti();
+    if (Math.abs(x - headShadowPosition.x) < 10 && Math.abs(y - headShadowPosition.y) < 10) {
+      setHeadPosition(headShadowPosition);
+      window.confetti();
+    } else {
+      setHeadPosition({ x, y });
     }
   };
 
+
+
   return (
     <div>
-      <div style={{ position: 'absolute', top: '10px', right: '10px' }}>
-        Time: {elapsedTime} seconds
-      </div>
-      <div style={{ width: '800px', height: '600px', backgroundColor: '#D8F7F2', position: 'relative' }}>
-        <img
-          src="images/hippo-splitshad.png"
-          alt="shadow"
-          style={{ position: 'absolute', left: '500px', top: '100px' }}
+      <div style={{ position: 'relative', width: '800px', height: '500px', backgroundColor: '#D8F7F2' }}>
+        <div
+          style={{
+            position: 'absolute',
+            width: '256px',
+            height: '256px',
+            background: 'url(images/hippoback.png) no-repeat',
+            backgroundSize: 'contain',
+            left: `${tailPosition.x}px`,
+            top: `${tailPosition.y}px`
+          }}
         />
-        <img
-          src="images/hippo-split (1).png"
-          alt="image1"
-          style={{ position: 'absolute', left: '842px', top: '100px' }}
+        <div
+          style={{
+            position: 'absolute',
+            width: '256px',
+            height: '256px',
+            background: 'url(images/hippo-splitshad.png) no-repeat',
+            backgroundSize: 'contain',
+            left: `${headShadowPosition.x}px`,
+            top: `${headShadowPosition.y}px`
+          }}
         />
-        <Draggable onStop={handleDragStop}>
-          <img
-            src="images/hippo-split.png"
-            alt="image2"
-            style={{ position: 'absolute', left: '50px', top: '100px', cursor: 'pointer' }}
+        <Draggable
+          position={headPosition}
+          onStop={onStopHead}
+          nodeRef={headRef}
+        >
+          <div
+            ref={headRef}
+            style={{
+              position: 'absolute',
+              width: '256px',
+              height: '256px',
+              background: 'url(images/hippofront.png) no-repeat',
+              backgroundSize: 'contain'
+            }}
           />
         </Draggable>
+        
       </div>
-      <div>Trials: {trialCount}</div> {/* Display the trial count */}
-      {/* {timeTaken !== null && <div>Time Taken: {timeTaken} seconds</div>} Display the time taken */}
+      <div>Trials: {trialCount}</div>
     </div>
   );
 };

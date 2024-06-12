@@ -42,7 +42,16 @@ h1 {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  margin: 0 10px;
+
 }
+.button-container {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 
 .button-74:hover {
   background-color: #fff;
@@ -59,3 +68,48 @@ h1 {
     padding: 0 25px;
   }
 }
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.button-container {
+  margin-top: 20px; /* Adjust as needed */
+  text-align: center;
+}
+
+/* Add any additional CSS styles as needed */
+
+/* App.css */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; /* Prevent scrolling */
+}
+
+#root {
+  height: 100%;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.button-74 {
+  margin: 0 10px;
+}
+
+.level-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
