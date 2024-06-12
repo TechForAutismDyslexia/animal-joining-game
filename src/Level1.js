@@ -70,7 +70,7 @@ const Level1 = ({ onNext, onPrev }) => {
         <img
           src="images/hippo-split (1).png"
           alt="image1"
-          style={{ position: 'absolute', left: '843px', top: '100px' }}
+          style={{ position: 'absolute', left: '842px', top: '100px' }}
         />
         <Draggable onStop={handleDragStop}>
           <img
