@@ -6,7 +6,7 @@
     <title>PixiJS Drag and Drops</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.1.3/pixi.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    <style>
+    <!-- <style>
         /* Basic CSS for modal */
         .modal {
             display: none;
@@ -48,7 +48,7 @@
             text-decoration: none;
             cursor: pointer;
         }
-    </style>
+    </style> -->
 </head>
 
 <body>
@@ -102,7 +102,7 @@
             };
 
             // Timer variables
-            var startTime, endTime, timerInterval;
+            var startTime, endTime, timerInterval;///////////////////////////////
 
             function setup() {
                 // Create sprites from the loaded images
@@ -142,7 +142,7 @@
 
                 // Start the timer
                 startTime = new Date();
-                timerInterval = setInterval(updateTimer, 1000);
+                timerInterval = setInterval(updateTimer, 1000);//////////////////////////////////
 
                 // Set up retry modal
                 var retryModal = document.getElementById('retryModal');
