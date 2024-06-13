@@ -94,7 +94,8 @@ const Level1 = ({ onNext, onPrev }) => {
 
   return (
     <div>
-      <div style={{ position: 'relative', width: '800px', height: '500px', backgroundColor: '#D8F7F2' }}>
+      <div style={{ position: 'relative', backgroundColor: '#D8F7F2' }}>
+
         <div
           style={{
             position: 'absolute',
