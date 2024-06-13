@@ -89,12 +89,12 @@ const App = () => {
 
   const nextLevel = () => {
     setCurrentLevel(prevLevel => Math.min(prevLevel + 1, levels.length - 1));
-    setTimer(0); // Reset timer when moving to the next level
+    // setTimer(0); // Reset timer when moving to the next level
   };
 
   const prevLevel = () => {
     setCurrentLevel(prevLevel => Math.max(prevLevel - 1, 0));
-    setTimer(0); // Reset timer when moving to the previous level
+    // setTimer(0); // Reset timer when moving to the previous level
   };
 
   const renderLevel = () => {
@@ -123,7 +123,7 @@ const App = () => {
       </div>
 
       {/* Timer */}
-      <div style={{ position: 'absolute', top: '10px', right: '10px', fontSize: '30px' }}>
+      <div style={{ position: 'absolute', top: '80px', right: '10px', fontSize: '30px' }}>
         Timer: {formatTime(timer)}
       </div>
 
@@ -131,7 +131,7 @@ const App = () => {
       <div className="button-container">
         <button className="button-74" onClick={prevLevel} disabled={currentLevel === 0}>
           Previous
-        </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </button>
         <button className="button-74" onClick={nextLevel} disabled={currentLevel === levels.length - 1}>
           Next
         </button>

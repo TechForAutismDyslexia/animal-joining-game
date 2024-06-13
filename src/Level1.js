@@ -136,7 +136,7 @@ const Level1 = ({ onNext, onPrev }) => {
         </Draggable>
         
       </div>
-      <div>Trials: {trialCount}</div>
+      <div style= {{position: 'absolute', top: '120px', right: '10px', fontSize: '30px'}} >Trials: {trialCount}</div>
     </div>
   );
 };
