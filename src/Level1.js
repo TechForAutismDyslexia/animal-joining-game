@@ -245,12 +245,11 @@
 // };
 
 // export default Level1;
-
 import React, { useState, useRef, useEffect } from 'react';
 import Draggable from 'react-draggable';
 import './style.css';
 
-const Level1 = ({ onNext, onPrev }) => {
+const Level1 = ({ onNext, onPrev, scaleFactor }) => {
   const [trialCount, setTrialCount] = useState(0);
   const [headPosition, setHeadPosition] = useState({ x: 100, y: 100 });
   const [tailPosition, setTailPosition] = useState({ x: 0, y: 0 });
@@ -339,7 +338,7 @@ const Level1 = ({ onNext, onPrev }) => {
           }}
         />
       </Draggable>
-      <div style={{ position: 'absolute', top: '120px', right: '10px', fontSize: '30px', zIndex: 2 }}>Trials: {trialCount}</div>
+      <div style={{ position: 'absolute', top: '120px', right: '10px', fontSize: `${40 * scaleFactor}px`, zIndex: 2 }}>Trials: {trialCount}</div>
     </div>
   );
 };
