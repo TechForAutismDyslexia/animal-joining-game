@@ -339,8 +339,8 @@ const Level2 = ({ onNext, onPrev }) => {
   };
 
   useEffect(() => {
+    handleResize(); // Call handleResize initially to set positions based on initial screen size
     window.addEventListener('resize', handleResize);
-    handleResize();
 
     return () => {
       window.removeEventListener('resize', handleResize);
