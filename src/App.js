@@ -505,8 +505,10 @@ const App = () => {
       const totalTimeInSeconds = Math.floor((endTime - startTime) / 1000);
       return (
         <div className="end-page">
-          <h3 className='heading'>Congratulations! You completed the game.</h3>
-          <p>Total Time: {formatTime(totalTimeInSeconds)}</p>
+          <h3 className='heading' style={{fontSize: '50px'}}>Congratulations! You completed the game.</h3>
+          <img src="images/last.gif" style={{ width: '200px', height: 'auto' }} alt="Congratulations GIF" />
+
+          <p style={{fontSize:'40px'}}>Total Time: {formatTime(totalTimeInSeconds)}</p>
         </div>
       );
     }
