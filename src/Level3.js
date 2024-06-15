@@ -413,9 +413,9 @@ const Level3 = ({ onNext, onPrev }) => {
       <div
         style={{
           position: 'absolute',
-          top: `${120 * scale}px`,
+          top: `${150 * scale}px`,
           right: '10px',
-          fontSize: `${30 * scale}px`,
+          fontSize: `${50 * scale}px`,
           zIndex: 2
         }}
       >
