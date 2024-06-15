@@ -278,6 +278,7 @@ const Level2 = ({ onNext, onPrev }) => {
   const [deerPosition, setDeerPosition] = useState({ x: 900, y: 0 });
   const [tailPosition, setTailPosition] = useState({ x: 0, y: 0 });
   const [headShadowPosition, setHeadShadowPosition] = useState({ x: 0, y: 0 });
+  const [scale, setScale] = useState(1);
 
   const headRef = useRef(null);
   const deerRef = useRef(null);
@@ -336,6 +337,7 @@ const Level2 = ({ onNext, onPrev }) => {
     setHeadPosition({ x: 1000 * scale, y: 400 * scale });
     setDeerPosition({ x: 1000 * scale, y: 0 * scale });
     originalDeerPositionRef.current = { x: 1000 * scale, y: 0 * scale }; // Update the ref with the new position
+    setScale(scale); // Set the scale for dynamic adjustments
   };
 
   useEffect(() => {
@@ -395,7 +397,15 @@ const Level2 = ({ onNext, onPrev }) => {
           }}
         />
       </Draggable>
-      <div style={{ position: 'absolute', top: '120px', right: '10px', fontSize: '30px', zIndex: 2 }}>
+      <div
+        style={{
+          position: 'absolute',
+          top: `${120 * scale}px`,
+          right: '10px',
+          fontSize: `${30 * scale}px`,
+          zIndex: 2
+        }}
+      >
         Trials: {trialCount}
       </div>
     </div>

@@ -5,7 +5,7 @@ import Draggable from 'react-draggable';
 const Level3 = ({ onNext, onPrev }) => {
   const [trialCount, setTrialCount] = useState(0);
   const [headPosition, setHeadPosition] = useState({ x: 1000, y: 280 });
-  const [deerPosition, setDeerPosition] = useState({ x: 1000, y: 20 });
+  const [deerPosition, setDeerPosition] = useState({ x: 1000, y: 400 });
   const [tailPosition, setTailPosition] = useState({ x: 0, y: 0 });
   const [headShadowPosition, setHeadShadowPosition] = useState({ x: 0, y: 0 });
   const [scale, setScale] = useState(1);
@@ -13,7 +13,7 @@ const Level3 = ({ onNext, onPrev }) => {
   const headRef = useRef(null);
   const deerRef = useRef(null);
   const [imageSize, setImageSize] = useState({ width: 400, height: 400 });
-  const originalDeerPositionRef = useRef({ x: 1000, y: 20 });
+  const originalDeerPositionRef = useRef({ x: 1000, y: 400 });
 
   const incrementTrialCount = () => {
     setTrialCount((prevCount) => prevCount + 1);
@@ -60,13 +60,13 @@ const Level3 = ({ onNext, onPrev }) => {
 
   const handleResize = () => {
     const scale = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
-    const newSize = { width: 400 * scale, height: 400 * scale };
+    const newSize = { width: 350 * scale, height: 350 * scale };
     setImageSize(newSize);
     setTailPosition({ x: 200 * scale, y: 100 * scale });
-    setHeadShadowPosition({ x: 409 * scale, y: 100 * scale });
-    setHeadPosition({ x: 1000 * scale, y: 400 * scale });
-    setDeerPosition({ x: 1000 * scale, y: 20 * scale });
-    originalDeerPositionRef.current = { x: 1000 * scale, y: 20 * scale };
+    setHeadShadowPosition({ x: 200 * scale, y: 439 * scale });
+    setHeadPosition({ x: 800 * scale, y: 100 * scale });
+    setDeerPosition({ x: 800 * scale, y: 550 * scale });
+    originalDeerPositionRef.current = { x: 800 * scale, y: 550 * scale };
     setScale(scale); // Set the scale for dynamic adjustments
   };
 
@@ -86,7 +86,7 @@ const Level3 = ({ onNext, onPrev }) => {
           position: 'absolute',
           width: `${imageSize.width}px`,
           height: `${imageSize.height}px`,
-          background: 'url(images/goat.png) no-repeat',
+          background: 'url(images/penghead.png) no-repeat',
           backgroundSize: 'contain',
           left: `${tailPosition.x}px`,
           top: `${tailPosition.y}px`,
@@ -97,7 +97,7 @@ const Level3 = ({ onNext, onPrev }) => {
           position: 'absolute',
           width: `${imageSize.width}px`,
           height: `${imageSize.height}px`,
-          background: 'url(images/goatshad.png) no-repeat',
+          background: 'url(images/pengshad.png) no-repeat',
           backgroundSize: 'contain',
           left: `${headShadowPosition.x}px`,
           top: `${headShadowPosition.y}px`,
@@ -110,7 +110,7 @@ const Level3 = ({ onNext, onPrev }) => {
             position: 'absolute',
             width: `${imageSize.width}px`,
             height: `${imageSize.height}px`,
-            background: 'url(images/goattail.png) no-repeat',
+            background: 'url(images/pengtail.png) no-repeat',
             backgroundSize: 'contain',
           }}
         />
@@ -122,7 +122,7 @@ const Level3 = ({ onNext, onPrev }) => {
             position: 'absolute',
             width: `${imageSize.width}px`,
             height: `${imageSize.height}px`,
-            background: 'url(images/sheep.png) no-repeat',
+            background: 'url(images/pengtail2.png) no-repeat',
             backgroundSize: 'contain',
           }}
         />

@@ -282,7 +282,6 @@
 // };
 
 // export default Level3;
-
 import React, { useEffect, useState, useRef } from 'react';
 import Draggable from 'react-draggable';
 
@@ -292,6 +291,7 @@ const Level3 = ({ onNext, onPrev }) => {
   const [deerPosition, setDeerPosition] = useState({ x: 1000, y: 20 });
   const [tailPosition, setTailPosition] = useState({ x: 0, y: 0 });
   const [headShadowPosition, setHeadShadowPosition] = useState({ x: 0, y: 0 });
+  const [scale, setScale] = useState(1);
 
   const headRef = useRef(null);
   const deerRef = useRef(null);
@@ -334,7 +334,7 @@ const Level3 = ({ onNext, onPrev }) => {
         }));
         setTimeout(shake, shakeDuration);
       } else {
-        setDeerPosition(originalDeerPositionRef.current); // Use the ref to reset the position
+        setDeerPosition(originalDeerPositionRef.current);
       }
     };
 
@@ -349,7 +349,8 @@ const Level3 = ({ onNext, onPrev }) => {
     setHeadShadowPosition({ x: 200 * scale, y: 100 * scale });
     setHeadPosition({ x: 1000 * scale, y: 400 * scale });
     setDeerPosition({ x: 1000 * scale, y: 20 * scale });
-    originalDeerPositionRef.current = { x: 1000 * scale, y: 20 * scale }; // Update the ref with the new position
+    originalDeerPositionRef.current = { x: 1000 * scale, y: 20 * scale };
+    setScale(scale); // Set the scale for dynamic adjustments
   };
 
   useEffect(() => {
@@ -366,12 +367,12 @@ const Level3 = ({ onNext, onPrev }) => {
       <div
         style={{
           position: 'absolute',
-          width: `${imageSize.width+35}px`,
+          width: `${imageSize.width + 35}px`,
           height: `${imageSize.height}px`,
           background: 'url(images/tigerbody.png) no-repeat',
           backgroundSize: 'contain',
           left: `${tailPosition.x}px`,
-          top: `${tailPosition.y-4}px`,
+          top: `${tailPosition.y - 4}px`,
         }}
       />
       <div
@@ -409,7 +410,15 @@ const Level3 = ({ onNext, onPrev }) => {
           }}
         />
       </Draggable>
-      <div style={{ position: 'absolute', top: '120px', right: '10px', fontSize: '30px', zIndex: 2 }}>
+      <div
+        style={{
+          position: 'absolute',
+          top: `${120 * scale}px`,
+          right: '10px',
+          fontSize: `${30 * scale}px`,
+          zIndex: 2
+        }}
+      >
         Trials: {trialCount}
       </div>
     </div>
