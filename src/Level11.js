@@ -1,19 +1,21 @@
-
 import React, { useEffect, useState, useRef } from 'react';
 import Draggable from 'react-draggable';
 
 const Level3 = ({ onNext, onPrev }) => {
   const [trialCount, setTrialCount] = useState(0);
   const [headPosition, setHeadPosition] = useState({ x: 1000, y: 280 });
-  const [deerPosition, setDeerPosition] = useState({ x: 1000, y: 20 });
+  const [deerPosition1, setDeerPosition1] = useState({ x: 1000, y: 400 });
+  const [deerPosition2, setDeerPosition2] = useState({ x: 1200, y: 400 });
   const [tailPosition, setTailPosition] = useState({ x: 0, y: 0 });
   const [headShadowPosition, setHeadShadowPosition] = useState({ x: 0, y: 0 });
   const [scale, setScale] = useState(1);
 
   const headRef = useRef(null);
-  const deerRef = useRef(null);
+  const deerRef1 = useRef(null);
+  const deerRef2 = useRef(null);
   const [imageSize, setImageSize] = useState({ width: 400, height: 400 });
-  const originalDeerPositionRef = useRef({ x: 1000, y: 20 });
+  const originalDeerPositionRef1 = useRef({ x: 900, y: 400 });
+  const originalDeerPositionRef2 = useRef({ x: 1200, y: 300 });
 
   const incrementTrialCount = () => {
     setTrialCount((prevCount) => prevCount + 1);
@@ -31,12 +33,17 @@ const Level3 = ({ onNext, onPrev }) => {
     }
   };
 
-  const onStopDeer = (e, data) => {
+  const onStopDeer1 = (e, data) => {
     incrementTrialCount();
-    shakeAndResetDeer();
+    shakeAndResetDeer(setDeerPosition1, originalDeerPositionRef1);
   };
 
-  const shakeAndResetDeer = () => {
+  const onStopDeer2 = (e, data) => {
+    incrementTrialCount();
+    shakeAndResetDeer(setDeerPosition2, originalDeerPositionRef2);
+  };
+
+  const shakeAndResetDeer = (setDeerPosition, originalDeerPositionRef) => {
     const shakeAmplitude = 10;
     const shakeDuration = 100;
     let shakeCount = 0;
@@ -62,11 +69,13 @@ const Level3 = ({ onNext, onPrev }) => {
     const scale = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
     const newSize = { width: 400 * scale, height: 400 * scale };
     setImageSize(newSize);
-    setTailPosition({ x: 589 * scale, y: 110 * scale });
-    setHeadShadowPosition({ x: 200 * scale, y: 100 * scale });
-    setHeadPosition({ x: 1000 * scale, y: 400 * scale });
-    setDeerPosition({ x: 1000 * scale, y: 20 * scale });
-    originalDeerPositionRef.current = { x: 1000 * scale, y: 20 * scale };
+    setTailPosition({ x: 425 * scale, y: 200 * scale });
+    setHeadShadowPosition({ x: 300 * scale, y: 200 * scale });
+    setHeadPosition({ x: 900 * scale, y: 400 * scale });
+    setDeerPosition1({ x: 1100 * scale, y: 250 * scale });
+    setDeerPosition2({ x: 900 * scale, y: 10 * scale });
+    originalDeerPositionRef1.current = { x: 1100 * scale, y: 250 * scale };
+    originalDeerPositionRef2.current = { x: 900 * scale, y: 10 * scale };
     setScale(scale); // Set the scale for dynamic adjustments
   };
 
@@ -84,12 +93,12 @@ const Level3 = ({ onNext, onPrev }) => {
       <div
         style={{
           position: 'absolute',
-          width: `${imageSize.width + 35}px`,
+          width: `${imageSize.width}px`,
           height: `${imageSize.height}px`,
-          background: 'url(images/tigerbody.png) no-repeat',
+          background: 'url(images/giraffehead.png) no-repeat',
           backgroundSize: 'contain',
           left: `${tailPosition.x}px`,
-          top: `${tailPosition.y - 4}px`,
+          top: `${tailPosition.y}px`,
         }}
       />
       <div
@@ -97,7 +106,7 @@ const Level3 = ({ onNext, onPrev }) => {
           position: 'absolute',
           width: `${imageSize.width}px`,
           height: `${imageSize.height}px`,
-          background: 'url(images/tigershad.png) no-repeat',
+          background: 'url(images/giraffeshad.png) no-repeat',
           backgroundSize: 'contain',
           left: `${headShadowPosition.x}px`,
           top: `${headShadowPosition.y}px`,
@@ -110,19 +119,31 @@ const Level3 = ({ onNext, onPrev }) => {
             position: 'absolute',
             width: `${imageSize.width}px`,
             height: `${imageSize.height}px`,
-            background: 'url(images/tiger-split.png) no-repeat',
+            background: 'url(images/giraffetail.png) no-repeat',
             backgroundSize: 'contain',
           }}
         />
       </Draggable>
-      <Draggable position={deerPosition} onStop={onStopDeer} nodeRef={deerRef}>
+      <Draggable position={deerPosition1} onStop={onStopDeer1} nodeRef={deerRef1}>
         <div
-          ref={deerRef}
+          ref={deerRef1}
           style={{
             position: 'absolute',
             width: `${imageSize.width}px`,
             height: `${imageSize.height}px`,
-            background: 'url(images/cheetahhead.png) no-repeat',
+            background: 'url(images/dogtail.png) no-repeat',
+            backgroundSize: 'contain',
+          }}
+        />
+      </Draggable>
+      <Draggable position={deerPosition2} onStop={onStopDeer2} nodeRef={deerRef2}>
+        <div
+          ref={deerRef2}
+          style={{
+            position: 'absolute',
+            width: `${imageSize.width}px`,
+            height: `${imageSize.height}px`,
+            background: 'url(images/horsetail.png) no-repeat',
             backgroundSize: 'contain',
           }}
         />
