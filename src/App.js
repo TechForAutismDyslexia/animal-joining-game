@@ -141,13 +141,19 @@ import Level9 from './Level9';
 import Level10 from './Level10';
 import Level11 from './Level11';
 import Level12 from './Level12';
+import Level13 from './Level13';
+import Level14 from './Level14';
+import Level15 from './Level15';
+import Level16 from './Level16';
+import Level17 from './Level17';
+import Level18 from './Level18';
 import './App.css';
 import InstructionsPopup from './InstructionsPopup'; // Import InstructionsPopup component
 
 const sessionLevels = {
   session1: [Level1, Level2,Level3,Level4,Level5,Level6],
   session2: [Level7, Level8,Level9,Level10,Level11,Level12],
-  session3: [Level5, Level6],
+  session3: [Level13, Level14,Level15,Level16,Level17,Level18],
 };
 
 const App = () => {

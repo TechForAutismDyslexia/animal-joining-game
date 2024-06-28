@@ -14,8 +14,8 @@ const Level8 = ({ onNext, onPrev }) => {
   const deerRef1 = useRef(null);
   const deerRef2 = useRef(null);
   const [imageSize, setImageSize] = useState({ width: 500, height: 500 });
-  const originalDeerPositionRef1 = useRef({ x: 900, y: 450 });
-  const originalDeerPositionRef2 = useRef({ x: 900, y: 10 });
+  const originalDeerPositionRef1 = useRef({ x: 900, y: 100 });
+  const originalDeerPositionRef2 = useRef({ x: 1200, y: 300 });
 
   const incrementTrialCount = () => {
     setTrialCount((prevCount) => prevCount + 1);
@@ -69,13 +69,13 @@ const Level8 = ({ onNext, onPrev }) => {
     const scale = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
     const newSize = { width: 400 * scale, height: 400 * scale };
     setImageSize(newSize);
-    setTailPosition({ x: 280 * scale, y: 200 * scale });
-    setHeadShadowPosition({ x: 120 * scale, y: 200 * scale });
-    setHeadPosition({ x: 1200 * scale, y: 300 * scale });
-    setDeerPosition1({ x: 800 * scale, y: 450 * scale });
-    setDeerPosition2({ x: 800 * scale, y: 10 * scale });
-    originalDeerPositionRef1.current = { x: 800 * scale, y: 450 * scale };
-    originalDeerPositionRef2.current = { x: 800 * scale, y: 10 * scale };
+    setTailPosition({ x: 200 * scale, y: 200 * scale });
+    setHeadShadowPosition({ x: 371 * scale, y: 200 * scale });
+    setHeadPosition({ x: 1300 * scale, y: 200 * scale });
+    setDeerPosition1({ x: 900 * scale, y: 350 * scale });
+    setDeerPosition2({ x: 900 * scale, y: 50 * scale });
+    originalDeerPositionRef1.current = { x: 900 * scale, y: 350 * scale };
+    originalDeerPositionRef2.current = { x: 900 * scale, y: 50 * scale };
     setScale(scale); // Set the scale for dynamic adjustments
   };
 
@@ -95,7 +95,7 @@ const Level8 = ({ onNext, onPrev }) => {
           position: 'absolute',
           width: `${imageSize.width}px`,
           height: `${imageSize.height}px`,
-          background: 'url(images/deer2tail.png) no-repeat',
+          background: 'url(images/elephanttail.png) no-repeat',
           backgroundSize: 'contain',
           left: `${tailPosition.x}px`,
           top: `${tailPosition.y}px`,
@@ -106,7 +106,7 @@ const Level8 = ({ onNext, onPrev }) => {
           position: 'absolute',
           width: `${imageSize.width}px`,
           height: `${imageSize.height}px`,
-          background: 'url(images/deer2shad.png) no-repeat',
+          background: 'url(images/elephantshad.png) no-repeat',
           backgroundSize: 'contain',
           left: `${headShadowPosition.x}px`,
           top: `${headShadowPosition.y}px`,
@@ -119,7 +119,7 @@ const Level8 = ({ onNext, onPrev }) => {
             position: 'absolute',
             width: `${imageSize.width}px`,
             height: `${imageSize.height}px`,
-            background: 'url(images/deer2head.png) no-repeat',
+            background: 'url(images/elephanthead.png) no-repeat',
             backgroundSize: 'contain',
           }}
         />
@@ -131,7 +131,7 @@ const Level8 = ({ onNext, onPrev }) => {
             position: 'absolute',
             width: `${imageSize.width}px`,
             height: `${imageSize.height}px`,
-            background: 'url(images/buffalohead.png) no-repeat',
+            background: 'url(images/henhead.png) no-repeat',
             backgroundSize: 'contain',
           }}
         />
@@ -141,9 +141,9 @@ const Level8 = ({ onNext, onPrev }) => {
           ref={deerRef2}
           style={{
             position: 'absolute',
-            width: `${imageSize.width}px`,
+            width: `${imageSize.width-70}px`,
             height: `${imageSize.height}px`,
-            background: 'url(images/henhead.png) no-repeat',
+            background: 'url(images/dolphinhead.png) no-repeat',
             backgroundSize: 'contain',
           }}
         />

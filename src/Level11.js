@@ -72,9 +72,9 @@ const Level3 = ({ onNext, onPrev }) => {
     setTailPosition({ x: 425 * scale, y: 200 * scale });
     setHeadShadowPosition({ x: 300 * scale, y: 200 * scale });
     setHeadPosition({ x: 900 * scale, y: 400 * scale });
-    setDeerPosition1({ x: 1100 * scale, y: 250 * scale });
+    setDeerPosition1({ x: 1200 * scale, y: 250 * scale });
     setDeerPosition2({ x: 900 * scale, y: 10 * scale });
-    originalDeerPositionRef1.current = { x: 1100 * scale, y: 250 * scale };
+    originalDeerPositionRef1.current = { x: 1200 * scale, y: 250 * scale };
     originalDeerPositionRef2.current = { x: 900 * scale, y: 10 * scale };
     setScale(scale); // Set the scale for dynamic adjustments
   };
