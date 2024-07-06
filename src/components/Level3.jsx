@@ -5,7 +5,9 @@ import tail from '../assets/images/tigerbody.png';
 import head from '../assets/images/tiger-split.png';
 import headshad from '../assets/images/tigershad.png';
 import deerhead from '../assets/images/cheetahhead.png';
+
 const Level3 = ({ onNext, onPrev,updateTrialCount,throwConfetti }) => {
+
   const [trialCount, setTrialCount] = useState(0);
   const [headPosition, setHeadPosition] = useState({ x: 1000, y: 280 });
   const [deerPosition, setDeerPosition] = useState({ x: 1000, y: 20 });
