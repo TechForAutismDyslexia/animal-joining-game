@@ -5,7 +5,7 @@ import tail from '../assets/images/tail.png';
 import head from '../assets/images/head.png';
 import headshad from '../assets/images/headshad.png';
 import deerhead from '../assets/images/deerhead.png';
-const Level2 = ({ updateTrialCount }) => {
+const Level2 = ({ updateTrialCount,throwConfetti }) => {
   const [trialCount, setTrialCount] = useState(0);
   const [positions, setPositions] = useState({
     head: { x: 1000, y: 400 },
@@ -31,7 +31,7 @@ const Level2 = ({ updateTrialCount }) => {
     const { x, y } = data;
     if (Math.abs(x - positions.headShadow.x) < 10 && Math.abs(y - positions.headShadow.y) < 10) {
       setPositions((prev) => ({ ...prev, head: positions.headShadow }));
-      window.confetti();
+      throwConfetti();
     } else {
       setPositions((prev) => ({ ...prev, head: { x, y } }));
     }

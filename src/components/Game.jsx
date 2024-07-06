@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
+import confetti from 'canvas-confetti';
+
 import Level1 from './Level1';
 import Level2 from './Level2';
 import Level3 from './Level3';
@@ -24,7 +26,7 @@ import gob from '../assets/images/goback.webp';
 import last from '../assets/images/last.gif';
 import inst from '../assets/inst.mp3';
 import instructions from '../assets/instructions.mp3';
-import { faBold } from '@fortawesome/free-solid-svg-icons';
+
 
 const sessionLevels = {
   session1: [Level1, Level2, Level3, Level4, Level5, Level6],
@@ -39,8 +41,17 @@ const Game = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [selectedSession, setSelectedSession] = useState(null);
   const [levels, setLevels] = useState([]);
+  const [showConfetti, setShowConfetti] = useState(false);
   const [showInstructions, setShowInstructions] = useState(false); // State to control showing InstructionsPopup
   const audioRef = useRef(null);
+  const throwConfetti = () => {
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 },
+    });
+  };
+
 
   useEffect(() => {
     if (startTime !== 0 && currentLevel >= levels.length) {
@@ -136,7 +147,7 @@ const Game = () => {
       );
     } else if (currentLevel < levels.length) {
       const LevelComponent = levels[currentLevel];
-      return <LevelComponent onNext={nextLevel} onPrev={prevLevel} onLevelComplete={handleLevelComplete} updateTrialCount={updateTrialCount} />;
+      return <LevelComponent onNext={nextLevel} onPrev={prevLevel} onLevelComplete={handleLevelComplete} updateTrialCount={updateTrialCount} throwConfetti={throwConfetti} />;
     } else {
       const totalTimeInSeconds = Math.floor((endTime - startTime) / 1000);
       const totalTrialCount = localStorage.getItem('totalTrialCount') || 0;

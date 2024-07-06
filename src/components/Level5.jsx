@@ -5,7 +5,7 @@ import tail from '../assets/images/beartail.png';
 import head from '../assets/images/bearhead.png';
 import headshad from '../assets/images/bearshad.png';
 import deerhead from '../assets/images/pbearhead.png';
-const Level3 = ({ onNext, onPrev ,updateTrialCount}) => {
+const Level3 = ({ onNext, onPrev ,updateTrialCount,throwConfetti}) => {
   const [trialCount, setTrialCount] = useState(0);
   const [headPosition, setHeadPosition] = useState({ x: 1000, y: 280 });
   const [deerPosition, setDeerPosition] = useState({ x: 1000, y: 400 });
@@ -29,7 +29,7 @@ const Level3 = ({ onNext, onPrev ,updateTrialCount}) => {
 
     if (Math.abs(x - headShadowPosition.x) < 10 && Math.abs(y - headShadowPosition.y) < 10) {
       setHeadPosition(headShadowPosition);
-      window.confetti();
+      throwConfetti();
     } else {
       setHeadPosition({ x, y });
     }

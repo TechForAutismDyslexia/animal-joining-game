@@ -4,13 +4,13 @@ import Draggable from 'react-draggable';
 import hippoback from '../assets/images/hippoback.png'; 
 import hippofront from '../assets/images/hippofront.png';
 import hipposplitshad from '../assets/images/hippo-splitshad.png';
-const Level1 = ({ onNext, onPrev, updateTrialCount }) => {
+
+const Level1 = ({ onNext, onPrev, updateTrialCount, throwConfetti }) => {
   const [trialCount, setTrialCount] = useState(0);
   const [headPosition, setHeadPosition] = useState({ x: 100, y: 100 });
   const [tailPosition, setTailPosition] = useState({ x: 0, y: 0 });
   const [headShadowPosition, setHeadShadowPosition] = useState({ x: 0, y: 0 });
   const [scale, setScale] = useState(1);
-
 
   const headRef = useRef(null);
   const [imageSize, setImageSize] = useState({ width: 400, height: 400 });
@@ -24,12 +24,9 @@ const Level1 = ({ onNext, onPrev, updateTrialCount }) => {
     incrementTrialCount(); 
     const { x, y } = data;
 
-    if (
-      Math.abs(x - headShadowPosition.x) < 10 &&
-      Math.abs(y - headShadowPosition.y) < 10
-    ) {
+    if (Math.abs(x - headShadowPosition.x) < 10 && Math.abs(y - headShadowPosition.y) < 10) {
       setHeadPosition(headShadowPosition);
-      window.confetti();
+      throwConfetti();
     } else {
       setHeadPosition({ x, y });
     }
