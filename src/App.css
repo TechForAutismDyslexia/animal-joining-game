@@ -1,12 +1,11 @@
 
-
- @font-face {
+@font-face {
   font-family: 'Rocher';
-  src: url(https://assets.codepen.io/9632/RocherColorGX.woff2);
+  src: url('https://assets.codepen.io/9632/RocherColorGX.woff2');
 }
 
 body {
-  font-family: 'Rocher';
+  font-family: 'Rocher', sans-serif; /* Add a fallback font */
   text-align: center;
   font-size: 50px;
   height: 100vh;
@@ -17,6 +16,7 @@ body {
 
 h1 {
   margin: 0;
+  font-family: 'Rocher', sans-serif; /* Ensure h1 uses the font */
 }
 
 @font-palette-values --Mint {
@@ -25,9 +25,11 @@ h1 {
 }
 
 .heading {
+  font-family: 'Rocher', sans-serif; /* Ensure heading uses the font */
   font-palette: --Mint;
 }
 
+/* Other styles */
 .button-74 {
   background-color: #fbeee0;
   border: 2px solid #422800;
@@ -70,10 +72,14 @@ h1 {
   position: absolute;
   top: 5px;
   right: 10px;
- 
   z-index: 2;
 }
-
+.goback{
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  z-index: 2;
+}
 .timer {
   position: absolute;
   top: 80px;
@@ -86,7 +92,6 @@ h1 {
   position: relative;
   z-index: 1;
 }
-
 
 .popup-overlay {
   position: fixed;
@@ -121,6 +126,7 @@ h1 {
 .instructions-heading {
   color: rgb(225, 179, 179);
   font-size: 30px;
+  font-family: 'Rocher', sans-serif; /* Ensure instructions heading uses the font */
 }
 
 .instructions-list {
@@ -130,6 +136,7 @@ h1 {
   list-style-type: disc;
   padding-left: 20px;
   margin-bottom: 20px;
+  font-family: 'Rocher', sans-serif; /* Ensure instructions list uses the font */
 }
 
 .small-button {
@@ -142,4 +149,10 @@ h1 {
   display: flex;
   justify-content: center;
   margin-top: 20px;
+}
+
+.start-page,
+.end-page {
+    overflow: hidden;
+    height: 100vh;
 }
