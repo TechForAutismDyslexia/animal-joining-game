@@ -10,11 +10,10 @@ import inst from "../assets/inst.mp3";
 import instructions from "../assets/instructions.mp3";
 
 const Game = () => {
-  const [currentLevel, setCurrentLevel] = useState(-1); // -1 indicates the start page
+  const [level, setLevel] = useState(-1); // -1 indicates the start page
   const [startTime, setStartTime] = useState(0);
   const [endTime, setEndTime] = useState(0);
-  const [selectedSession, setSelectedSession] = useState(null);
-  const [levels, setLevels] = useState([]);
+  const [session, setSession] = useState(-1);
   const [showInstructions, setShowInstructions] = useState(false); // State to control showing InstructionsPopup
   const audioRef = useRef(null);
   const instructionsAudioRef = useRef(new Audio(instructions));
@@ -27,16 +26,16 @@ const Game = () => {
   };
 
   useEffect(() => {
-    if (startTime !== 0 && currentLevel >= levels.length) {
+    if (startTime !== 0 && session >= 0 && level >= 6) {
       setEndTime(Date.now()); // Record end time when all levels are completed
     }
-  }, [currentLevel, startTime, levels.length]);
+  }, [level, startTime, session]);
 
   useEffect(() => {
-    if (currentLevel === -1) {
+    if (level === -1) {
       localStorage.removeItem("totalTrialCount"); // Reset trial count at the beginning of a new session
     }
-  }, [currentLevel]);
+  }, [level]);
 
   useEffect(() => {
     const sendGameData = async () => {
@@ -76,29 +75,28 @@ const Game = () => {
     };
 
     // Call sendGameData only once when game ends
-    if (currentLevel >= levels.length && startTime !== 0 && endTime !== 0) {
+    if (level >= 6 && startTime !== 0 && endTime !== 0) {
       sendGameData();
     }
-  }, [currentLevel, startTime, endTime, levels.length]);
+  }, [level, startTime, endTime, session]);
 
   const nextLevel = () => {
-    setCurrentLevel((prevLevel) => Math.min(prevLevel + 1, levels.length));
+    setLevel((prevLevel) => Math.min(prevLevel + 1, 6));
   };
 
   const prevLevel = () => {
-    setCurrentLevel((prevLevel) => Math.max(prevLevel - 1, 0));
+    setLevel((prevLevel) => Math.max(prevLevel - 1, 0));
   };
 
   const replayGame = () => {
-    setCurrentLevel(-1);
+    setLevel(0);
     setStartTime(0);
     setEndTime(0);
-    setSelectedSession(null);
     setShowInstructions(false);
   };
 
   const renderLevel = () => {
-    if (currentLevel === -1) {
+    if (level === -1) {
       return (
         <div className="start-page">
           <div className="goback">
@@ -112,25 +110,27 @@ const Game = () => {
             />
           </div>
           <h3 className="heading">Animal Matching Game</h3>
-          <button className="button-74" onClick={() => handleSessionSelect("session1")}>
-            Session 1
-          </button>
-          <button className="button-74" onClick={() => handleSessionSelect("session2")}>
-            Session 2
-          </button>
-          <button className="button-74" onClick={() => handleSessionSelect("session3")}>
-            Session 3
-          </button>
+          {[1, 2, 3].map((session) => (
+            <button
+              className="button-74"
+              onClick={() => handleSessionSelect(session)}
+              key={session}
+            >
+              Session {session}
+            </button>
+          ))}
         </div>
       );
-    } else if (currentLevel < levels.length) {
-      const LevelComponent = React.lazy(() => import(`./${levels[currentLevel]}.jsx`));
+    } else if (1 <= level <= 6) {
+      const LevelComponent = React.lazy(() =>
+        import(`./Level${(session - 1) * 6 + level + 1}.jsx`)
+      );
       return (
         <React.Suspense fallback={<div>Loading...</div>}>
           <LevelComponent
             onNext={nextLevel}
             onPrev={prevLevel}
-            onLevelComplete={handleLevelComplete}
+            onLevelComplete={() => {}}
             updateTrialCount={updateTrialCount}
             throwConfetti={throwConfetti}
           />
@@ -139,7 +139,6 @@ const Game = () => {
     } else {
       const totalTimeInSeconds = Math.floor((endTime - startTime) / 1000);
       const totalTrialCount = localStorage.getItem("totalTrialCount") || 0;
-      const gameId = "105";
 
       return (
         <div className="end-page">
@@ -170,25 +169,15 @@ const Game = () => {
     }
   };
 
-  const handleLevelComplete = () => {
-    // No need to check currentLevel === totalLevels - 1, since we increment past the last level
-  };
-
-  const toggleAudio = () => {
+  const playInstructions = () => {
     if (audioRef.current.paused) {
       audioRef.current.play();
     }
   };
 
-  const handleSessionSelect = async (session) => {
-    setSelectedSession(session);
+  const handleSessionSelect = async (s) => {
     playInstructionsAudio(); // Play instructions audio when session is selected
-    const sessionLevels = {
-      session1: ["Level1", "Level2", "Level3", "Level4", "Level5", "Level6"],
-      session2: ["Level7", "Level8", "Level9", "Level10", "Level11", "Level12"],
-      session3: ["Level13", "Level14", "Level15", "Level16", "Level17", "Level18"]
-    };
-    setLevels(sessionLevels[session]);
+    setSession(s);
     setShowInstructions(true);
   };
 
@@ -199,7 +188,7 @@ const Game = () => {
   };
 
   const handleCloseInstructions = () => {
-    setCurrentLevel(0);
+    setLevel(0);
     setStartTime(Date.now()); // Start the timer
     setShowInstructions(false);
   };
@@ -209,6 +198,7 @@ const Game = () => {
     localStorage.setItem("totalTrialCount", totalTrialCount + levelTrialCount);
   };
 
+  console.log(level, session);
   return (
     <div className="app-container">
       <div className="audio-player">
@@ -217,21 +207,17 @@ const Game = () => {
           src={audio}
           alt="Play"
           className="play-icon"
-          onClick={toggleAudio}
+          onClick={playInstructions}
           style={{ width: "50px", height: "50px", cursor: "pointer" }}
         />
       </div>
 
-      {currentLevel >= 0 && currentLevel < levels.length && (
+      {1 <= level <= 6 && session >= 0 && (
         <div className="button-container">
-          <button className="button-74" onClick={prevLevel} disabled={currentLevel <= 0}>
+          <button className="button-74" onClick={prevLevel} disabled={level <= 0}>
             Previous
           </button>
-          <button
-            className="button-74"
-            onClick={nextLevel}
-            disabled={currentLevel === levels.length}
-          >
+          <button className="button-74" onClick={nextLevel} disabled={level >= 6}>
             Next
           </button>
         </div>
