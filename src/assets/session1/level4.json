@@ -1,0 +1,45 @@
+{
+  "id": 2,
+  "segments": [
+    {
+      "id": "animal1",
+      "type": "animal",
+      "x": 200,
+      "y": 100,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/goat.png",
+      "isCorrect": false
+    },
+    {
+      "id": "shadow1",
+      "type": "shadow",
+      "x": 409,
+      "y": 100,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/goatshad.png"
+    },
+    {
+      "id": "segment1",
+      "type": "segment",
+      "x": 1000,
+      "y": 400,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/goattail.png",
+      "isCorrect": true
+    },
+    {
+      "id": "segment2",
+      "type": "segment",
+      "x": 1000,
+      "y": 20,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/sheep.png",
+      "isCorrect": false
+    }
+  ],
+  "correctSegment": "segment1"
+}

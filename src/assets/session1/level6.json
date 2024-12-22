@@ -1,0 +1,45 @@
+{
+  "id": 2,
+  "segments": [
+    {
+      "id": "animal1",
+      "type": "animal",
+      "x": 200,
+      "y": 100,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/penghead.png",
+      "isCorrect": false
+    },
+    {
+      "id": "shadow1",
+      "type": "shadow",
+      "x": 200,
+      "y": 488,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/pengshad.png"
+    },
+    {
+      "id": "segment1",
+      "type": "segment",
+      "x": 800,
+      "y": 100,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/pengtail.png",
+      "isCorrect": true
+    },
+    {
+      "id": "segment2",
+      "type": "segment",
+      "x": 800,
+      "y": 550,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/pengtail2.png",
+      "isCorrect": false
+    }
+  ],
+  "correctSegment": "segment1"
+}

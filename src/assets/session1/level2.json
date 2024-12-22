@@ -1,0 +1,45 @@
+{
+  "id": 2,
+  "segments": [
+    {
+      "id": "animal1",
+      "type": "animal",
+      "x": 420,
+      "y": 100,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/tail.png",
+      "isCorrect": false
+    },
+    {
+      "id": "shadow1",
+      "type": "shadow",
+      "x": 644,
+      "y": 100,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/headshad.png"
+    },
+    {
+      "id": "segment1",
+      "type": "segment",
+      "x": 1000,
+      "y": 400,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/head.png",
+      "isCorrect": true
+    },
+    {
+      "id": "segment2",
+      "type": "segment",
+      "x": 1000,
+      "y": 0,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/deerhead.png",
+      "isCorrect": false
+    }
+  ],
+  "correctSegment": "segment1"
+}

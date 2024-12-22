@@ -8,6 +8,11 @@ import gob from "../assets/images/goback.webp";
 import last from "../assets/images/last.gif";
 import inst from "../assets/inst.mp3";
 import instructions from "../assets/instructions.mp3";
+import Level from "./Level";
+
+// Create audio instances outside component to prevent multiple instantiation
+const instructionsAudioInstance = new Audio(instructions);
+const instAudioInstance = new Audio(inst);
 
 const Game = () => {
   const [level, setLevel] = useState(-1); // -1 indicates the start page
@@ -15,8 +20,8 @@ const Game = () => {
   const [endTime, setEndTime] = useState(0);
   const [session, setSession] = useState(-1);
   const [showInstructions, setShowInstructions] = useState(false); // State to control showing InstructionsPopup
-  const audioRef = useRef(null);
-  const instructionsAudioRef = useRef(new Audio(instructions));
+  const [audioInitialized, setAudioInitialized] = useState(false);
+
   const throwConfetti = () => {
     confetti({
       particleCount: 100,
@@ -80,6 +85,15 @@ const Game = () => {
     }
   }, [level, startTime, endTime, session]);
 
+  // Initialize audio only once
+  useEffect(() => {
+    if (!audioInitialized) {
+      instructionsAudioInstance.load();
+      instAudioInstance.load();
+      setAudioInitialized(true);
+    }
+  }, [audioInitialized]);
+
   const nextLevel = () => {
     setLevel((prevLevel) => Math.min(prevLevel + 1, 6));
   };
@@ -93,6 +107,13 @@ const Game = () => {
     setStartTime(0);
     setEndTime(0);
     setShowInstructions(false);
+  };
+
+  const getCurrentSessionTime = () => {
+    if (!startTime) return "00:00";
+    const currentTime = Date.now();
+    const sessionTime = Math.floor((currentTime - startTime) / 1000);
+    return formatTime(sessionTime);
   };
 
   const renderLevel = () => {
@@ -121,22 +142,19 @@ const Game = () => {
           ))}
         </div>
       );
-    } else if (1 <= level <= 6) {
-      const LevelComponent = React.lazy(() =>
-        import(`./Level${(session - 1) * 6 + level + 1}.jsx`)
-      );
+    } else if (0 <= level && level <= 5) {
+      console.log("Level", level);
       return (
-        <React.Suspense fallback={<div>Loading...</div>}>
-          <LevelComponent
-            onNext={nextLevel}
-            onPrev={prevLevel}
-            onLevelComplete={() => {}}
-            updateTrialCount={updateTrialCount}
-            throwConfetti={throwConfetti}
-          />
-        </React.Suspense>
+        <Level
+          sessionId={session}
+          levelId={level + 1}
+          onNext={nextLevel}
+          onPrev={prevLevel}
+          updateTrialCount={updateTrialCount}
+          throwConfetti={throwConfetti}
+        />
       );
-    } else {
+    } else if (level > 5) {
       const totalTimeInSeconds = Math.floor((endTime - startTime) / 1000);
       const totalTrialCount = localStorage.getItem("totalTrialCount") || 0;
 
@@ -159,7 +177,7 @@ const Game = () => {
               src={gob}
               alt="goback"
               onClick={() => {
-                window.location.href = "https://joywithlearning.com/games";
+                window.location.reload();
               }}
               style={{ width: "50px", height: "50px", cursor: "pointer" }}
             />
@@ -170,8 +188,8 @@ const Game = () => {
   };
 
   const playInstructions = () => {
-    if (audioRef.current.paused) {
-      audioRef.current.play();
+    if (instAudioInstance.paused) {
+      instAudioInstance.play();
     }
   };
 
@@ -182,8 +200,8 @@ const Game = () => {
   };
 
   const playInstructionsAudio = () => {
-    if (instructionsAudioRef.current.paused) {
-      instructionsAudioRef.current.play();
+    if (instructionsAudioInstance.paused) {
+      instructionsAudioInstance.play();
     }
   };
 
@@ -198,11 +216,19 @@ const Game = () => {
     localStorage.setItem("totalTrialCount", totalTrialCount + levelTrialCount);
   };
 
-  console.log(level, session);
+  // Cleanup audio on component unmount
+  useEffect(() => {
+    return () => {
+      instructionsAudioInstance.pause();
+      instAudioInstance.pause();
+      instructionsAudioInstance.currentTime = 0;
+      instAudioInstance.currentTime = 0;
+    };
+  }, []);
+
   return (
     <div className="app-container">
       <div className="audio-player">
-        <audio ref={audioRef} src={inst} />
         <img
           src={audio}
           alt="Play"
@@ -214,10 +240,20 @@ const Game = () => {
 
       {1 <= level <= 6 && session >= 0 && (
         <div className="button-container">
-          <button className="button-74" onClick={prevLevel} disabled={level <= 0}>
+          <button
+            className="button-74"
+            style={{ opacity: level <= 0 ? 0.4 : 1 }}
+            onClick={prevLevel}
+            disabled={level <= 0}
+          >
             Previous
           </button>
-          <button className="button-74" onClick={nextLevel} disabled={level >= 6}>
+          <button
+            className="button-74"
+            style={{ opacity: level >= 6 ? 0.4 : 1 }}
+            onClick={nextLevel}
+            disabled={level >= 6}
+          >
             Next
           </button>
         </div>

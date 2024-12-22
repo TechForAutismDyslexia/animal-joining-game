@@ -1,0 +1,35 @@
+{
+  "id": 1,
+  "segments": [
+    {
+      "id": "animal1",
+      "type": "animal",
+      "x": 920,
+      "y": 100,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/hippoback.png",
+      "isCorrect": false
+    },
+    {
+      "id": "shadow1",
+      "type": "shadow",
+      "x": 539,
+      "y": 100,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/hippo-splitshad.png"
+    },
+    {
+      "id": "segment1",
+      "type": "segment",
+      "x": 100,
+      "y": 100,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/hippofront.png",
+      "isCorrect": true
+    }
+  ],
+  "correctSegment": "segment1"
+}
