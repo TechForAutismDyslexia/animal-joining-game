@@ -1,0 +1,1251 @@
+[{
+  "_id": {
+    "$oid": "6769361a777704a07e08b429"
+  },
+  "levelId": 1,
+  "sessionId": 1,
+  "segments": [
+    {
+      "id": "animal1",
+      "type": "animal",
+      "x": 920,
+      "y": 100,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/hippoback.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "6769361a777704a07e08b42a"
+      }
+    },
+    {
+      "id": "shadow1",
+      "type": "shadow",
+      "x": 539,
+      "y": 100,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/hippo-splitshad.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "6769361a777704a07e08b42b"
+      }
+    },
+    {
+      "id": "segment1",
+      "type": "segment",
+      "x": 100,
+      "y": 100,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/hippofront.png",
+      "isCorrect": true,
+      "_id": {
+        "$oid": "6769361a777704a07e08b42c"
+      }
+    }
+  ],
+  "correctSegment": "segment1",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67693646777704a07e08b42f"
+  },
+  "levelId": 2,
+  "sessionId": 1,
+  "segments": [
+    {
+      "id": "animal1",
+      "type": "animal",
+      "x": 420,
+      "y": 100,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/tail.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "67693646777704a07e08b430"
+      }
+    },
+    {
+      "id": "shadow1",
+      "type": "shadow",
+      "x": 644,
+      "y": 100,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/headshad.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "67693646777704a07e08b431"
+      }
+    },
+    {
+      "id": "segment1",
+      "type": "segment",
+      "x": 1000,
+      "y": 400,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/head.png",
+      "isCorrect": true,
+      "_id": {
+        "$oid": "67693646777704a07e08b432"
+      }
+    },
+    {
+      "id": "segment2",
+      "type": "segment",
+      "x": 1000,
+      "y": 0,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/deerhead.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "67693646777704a07e08b433"
+      }
+    }
+  ],
+  "correctSegment": "segment1",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67693698777704a07e08b436"
+  },
+  "levelId": 3,
+  "sessionId": 1,
+  "segments": [
+    {
+      "id": "animal1",
+      "type": "animal",
+      "x": 589,
+      "y": 100,
+      "width": 455,
+      "height": 455,
+      "src": "assets/images/tigerbody.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "67693698777704a07e08b437"
+      }
+    },
+    {
+      "id": "shadow1",
+      "type": "shadow",
+      "x": 200,
+      "y": 100,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/tigershad.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "67693698777704a07e08b438"
+      }
+    },
+    {
+      "id": "segment1",
+      "type": "segment",
+      "x": 1000,
+      "y": 400,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/tiger-split.png",
+      "isCorrect": true,
+      "_id": {
+        "$oid": "67693698777704a07e08b439"
+      }
+    },
+    {
+      "id": "segment2",
+      "type": "segment",
+      "x": 1000,
+      "y": 20,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/cheetahhead.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "67693698777704a07e08b43a"
+      }
+    }
+  ],
+  "correctSegment": "segment1",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "676936b1777704a07e08b43d"
+  },
+  "levelId": 4,
+  "sessionId": 1,
+  "segments": [
+    {
+      "id": "animal1",
+      "type": "animal",
+      "x": 200,
+      "y": 100,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/goat.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "676936b1777704a07e08b43e"
+      }
+    },
+    {
+      "id": "shadow1",
+      "type": "shadow",
+      "x": 409,
+      "y": 100,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/goatshad.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "676936b1777704a07e08b43f"
+      }
+    },
+    {
+      "id": "segment1",
+      "type": "segment",
+      "x": 1000,
+      "y": 400,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/goattail.png",
+      "isCorrect": true,
+      "_id": {
+        "$oid": "676936b1777704a07e08b440"
+      }
+    },
+    {
+      "id": "segment2",
+      "type": "segment",
+      "x": 1000,
+      "y": 20,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/sheep.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "676936b1777704a07e08b441"
+      }
+    }
+  ],
+  "correctSegment": "segment1",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "676936f4777704a07e08b444"
+  },
+  "levelId": 5,
+  "sessionId": 1,
+  "segments": [
+    {
+      "id": "animal1",
+      "type": "animal",
+      "x": 500,
+      "y": 100,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/beartail.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "676936f4777704a07e08b445"
+      }
+    },
+    {
+      "id": "shadow1",
+      "type": "shadow",
+      "x": 182,
+      "y": 100,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/bearshad.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "676936f4777704a07e08b446"
+      }
+    },
+    {
+      "id": "segment1",
+      "type": "segment",
+      "x": 1000,
+      "y": 20,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/bearhead.png",
+      "isCorrect": true,
+      "_id": {
+        "$oid": "676936f4777704a07e08b447"
+      }
+    },
+    {
+      "id": "segment2",
+      "type": "segment",
+      "x": 1000,
+      "y": 400,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/pbearhead.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "676936f4777704a07e08b448"
+      }
+    }
+  ],
+  "correctSegment": "segment1",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67693709777704a07e08b44b"
+  },
+  "levelId": 6,
+  "sessionId": 1,
+  "segments": [
+    {
+      "id": "animal1",
+      "type": "animal",
+      "x": 200,
+      "y": 100,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/penghead.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "67693709777704a07e08b44c"
+      }
+    },
+    {
+      "id": "shadow1",
+      "type": "shadow",
+      "x": 200,
+      "y": 488,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/pengshad.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "67693709777704a07e08b44d"
+      }
+    },
+    {
+      "id": "segment1",
+      "type": "segment",
+      "x": 800,
+      "y": 100,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/pengtail.png",
+      "isCorrect": true,
+      "_id": {
+        "$oid": "67693709777704a07e08b44e"
+      }
+    },
+    {
+      "id": "segment2",
+      "type": "segment",
+      "x": 800,
+      "y": 550,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/pengtail2.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "6769370a777704a07e08b44f"
+      }
+    }
+  ],
+  "correctSegment": "segment1",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "676941cbdde482faed9c66ce"
+  },
+  "levelId": 1,
+  "sessionId": 2,
+  "segments": [
+    {
+      "id": "animal1",
+      "type": "animal",
+      "x": 200,
+      "y": 200,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/tigerhead.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "676941cbdde482faed9c66cf"
+      }
+    },
+    {
+      "id": "shadow1",
+      "type": "shadow",
+      "x": 479,
+      "y": 200,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/tigerrealshad.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "676941cbdde482faed9c66d0"
+      }
+    },
+    {
+      "id": "segment1",
+      "type": "segment",
+      "x": 900,
+      "y": 10,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/tigertail.png",
+      "isCorrect": true,
+      "_id": {
+        "$oid": "676941cbdde482faed9c66d1"
+      }
+    },
+    {
+      "id": "segment2",
+      "type": "segment",
+      "x": 900,
+      "y": 400,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/liontail.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "676941cbdde482faed9c66d2"
+      }
+    },
+    {
+      "id": "segment3",
+      "type": "segment",
+      "x": 1200,
+      "y": 300,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/hyenatail.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "676941cbdde482faed9c66d3"
+      }
+    }
+  ],
+  "correctSegment": "segment1",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "676941e8dde482faed9c66d6"
+  },
+  "levelId": 2,
+  "sessionId": 2,
+  "segments": [
+    {
+      "id": "animal1",
+      "type": "animal",
+      "x": 300,
+      "y": 200,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/deer2tail.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "676941e8dde482faed9c66d7"
+      }
+    },
+    {
+      "id": "shadow1",
+      "type": "shadow",
+      "x": 140,
+      "y": 200,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/deer2shad.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "676941e8dde482faed9c66d8"
+      }
+    },
+    {
+      "id": "segment1",
+      "type": "segment",
+      "x": 1200,
+      "y": 300,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/deer2head.png",
+      "isCorrect": true,
+      "_id": {
+        "$oid": "676941e8dde482faed9c66d9"
+      }
+    },
+    {
+      "id": "segment2",
+      "type": "segment",
+      "x": 800,
+      "y": 450,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/buffalohead.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "676941e8dde482faed9c66da"
+      }
+    },
+    {
+      "id": "segment3",
+      "type": "segment",
+      "x": 800,
+      "y": 10,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/henhead.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "676941e8dde482faed9c66db"
+      }
+    }
+  ],
+  "correctSegment": "segment1",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67694209dde482faed9c66de"
+  },
+  "levelId": 3,
+  "sessionId": 2,
+  "segments": [
+    {
+      "id": "animal1",
+      "type": "animal",
+      "x": 339,
+      "y": 200,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/sealtail.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "67694209dde482faed9c66df"
+      }
+    },
+    {
+      "id": "shadow1",
+      "type": "shadow",
+      "x": 125,
+      "y": 200,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/sealshad.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "67694209dde482faed9c66e0"
+      }
+    },
+    {
+      "id": "segment1",
+      "type": "segment",
+      "x": 900,
+      "y": 450,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/sealhead.png",
+      "isCorrect": true,
+      "_id": {
+        "$oid": "67694209dde482faed9c66e1"
+      }
+    },
+    {
+      "id": "segment2",
+      "type": "segment",
+      "x": 900,
+      "y": 10,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/deer2head.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "67694209dde482faed9c66e2"
+      }
+    },
+    {
+      "id": "segment3",
+      "type": "segment",
+      "x": 1200,
+      "y": 300,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/cowhead.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "67694209dde482faed9c66e3"
+      }
+    }
+  ],
+  "correctSegment": "segment1",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67694220dde482faed9c66e6"
+  },
+  "levelId": 4,
+  "sessionId": 2,
+  "segments": [
+    {
+      "id": "animal1",
+      "type": "animal",
+      "x": 200,
+      "y": 200,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/pighead.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "67694220dde482faed9c66e7"
+      }
+    },
+    {
+      "id": "shadow1",
+      "type": "shadow",
+      "x": 487,
+      "y": 200,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/pigshad.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "67694220dde482faed9c66e8"
+      }
+    },
+    {
+      "id": "segment1",
+      "type": "segment",
+      "x": 1450,
+      "y": 300,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/pigtail.png",
+      "isCorrect": true,
+      "_id": {
+        "$oid": "67694220dde482faed9c66e9"
+      }
+    },
+    {
+      "id": "segment2",
+      "type": "segment",
+      "x": 900,
+      "y": 400,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/eagletail.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "67694220dde482faed9c66ea"
+      }
+    },
+    {
+      "id": "segment3",
+      "type": "segment",
+      "x": 900,
+      "y": 10,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/whaletail.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "67694220dde482faed9c66eb"
+      }
+    }
+  ],
+  "correctSegment": "segment1",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67694238dde482faed9c66ee"
+  },
+  "levelId": 5,
+  "sessionId": 2,
+  "segments": [
+    {
+      "id": "animal1",
+      "type": "animal",
+      "x": 425,
+      "y": 200,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/giraffehead.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "67694238dde482faed9c66ef"
+      }
+    },
+    {
+      "id": "shadow1",
+      "type": "shadow",
+      "x": 300,
+      "y": 200,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/giraffeshad.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "67694238dde482faed9c66f0"
+      }
+    },
+    {
+      "id": "segment1",
+      "type": "segment",
+      "x": 900,
+      "y": 400,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/giraffetail.png",
+      "isCorrect": true,
+      "_id": {
+        "$oid": "67694238dde482faed9c66f1"
+      }
+    },
+    {
+      "id": "segment2",
+      "type": "segment",
+      "x": 1200,
+      "y": 250,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/dogtail.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "67694238dde482faed9c66f2"
+      }
+    },
+    {
+      "id": "segment3",
+      "type": "segment",
+      "x": 900,
+      "y": 10,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/horsetail.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "67694238dde482faed9c66f3"
+      }
+    }
+  ],
+  "correctSegment": "segment1",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6769424edde482faed9c66f6"
+  },
+  "levelId": 6,
+  "sessionId": 2,
+  "segments": [
+    {
+      "id": "animal1",
+      "type": "animal",
+      "x": 180,
+      "y": 200,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/goosetail.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "6769424edde482faed9c66f7"
+      }
+    },
+    {
+      "id": "shadow1",
+      "type": "shadow",
+      "x": 425,
+      "y": 200,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/gooseshad.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "6769424edde482faed9c66f8"
+      }
+    },
+    {
+      "id": "segment1",
+      "type": "segment",
+      "x": 900,
+      "y": 10,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/goosehead.png",
+      "isCorrect": true,
+      "_id": {
+        "$oid": "6769424edde482faed9c66f9"
+      }
+    },
+    {
+      "id": "segment2",
+      "type": "segment",
+      "x": 1200,
+      "y": 200,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/henhead2.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "6769424edde482faed9c66fa"
+      }
+    },
+    {
+      "id": "segment3",
+      "type": "segment",
+      "x": 900,
+      "y": 400,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/duckhead.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "6769424edde482faed9c66fb"
+      }
+    }
+  ],
+  "correctSegment": "segment1",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67694267dde482faed9c66fe"
+  },
+  "levelId": 1,
+  "sessionId": 3,
+  "segments": [
+    {
+      "id": "animal1",
+      "type": "animal",
+      "x": 200,
+      "y": 100,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/eaglehead.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "67694267dde482faed9c66ff"
+      }
+    },
+    {
+      "id": "shadow1",
+      "type": "shadow",
+      "x": 463,
+      "y": 100,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/eagleshad.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "67694267dde482faed9c6700"
+      }
+    },
+    {
+      "id": "segment1",
+      "type": "segment",
+      "x": 1000,
+      "y": 400,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/eagletail.png",
+      "isCorrect": true,
+      "_id": {
+        "$oid": "67694267dde482faed9c6701"
+      }
+    },
+    {
+      "id": "segment2",
+      "type": "segment",
+      "x": 1000,
+      "y": 20,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/swantail.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "67694267dde482faed9c6702"
+      }
+    }
+  ],
+  "correctSegment": "segment1",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6769427ddde482faed9c6705"
+  },
+  "levelId": 2,
+  "sessionId": 3,
+  "segments": [
+    {
+      "id": "animal1",
+      "type": "animal",
+      "x": 550,
+      "y": 100,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/moosetail.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "6769427ddde482faed9c6706"
+      }
+    },
+    {
+      "id": "shadow1",
+      "type": "shadow",
+      "x": 279,
+      "y": 100,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/mooseshad.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "6769427ddde482faed9c6707"
+      }
+    },
+    {
+      "id": "segment1",
+      "type": "segment",
+      "x": 1000,
+      "y": 20,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/moosehead.png",
+      "isCorrect": true,
+      "_id": {
+        "$oid": "6769427ddde482faed9c6708"
+      }
+    },
+    {
+      "id": "segment2",
+      "type": "segment",
+      "x": 1080,
+      "y": 400,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/goat14.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "6769427ddde482faed9c6709"
+      }
+    }
+  ],
+  "correctSegment": "segment1",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67694295dde482faed9c670c"
+  },
+  "levelId": 3,
+  "sessionId": 3,
+  "segments": [
+    {
+      "id": "animal1",
+      "type": "animal",
+      "x": 369,
+      "y": 200,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/skunkhead.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "67694295dde482faed9c670d"
+      }
+    },
+    {
+      "id": "shadow1",
+      "type": "shadow",
+      "x": 189,
+      "y": 200,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/skunkshad.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "67694295dde482faed9c670e"
+      }
+    },
+    {
+      "id": "segment1",
+      "type": "segment",
+      "x": 900,
+      "y": 10,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/skunktail.png",
+      "isCorrect": true,
+      "_id": {
+        "$oid": "67694295dde482faed9c670f"
+      }
+    },
+    {
+      "id": "segment2",
+      "type": "segment",
+      "x": 900,
+      "y": 450,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/fishtail.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "67694295dde482faed9c6710"
+      }
+    },
+    {
+      "id": "segment3",
+      "type": "segment",
+      "x": 1200,
+      "y": 150,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/goosetail.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "67694295dde482faed9c6711"
+      }
+    }
+  ],
+  "correctSegment": "segment1",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "676942acdde482faed9c6714"
+  },
+  "levelId": 4,
+  "sessionId": 3,
+  "segments": [
+    {
+      "id": "animal1",
+      "type": "animal",
+      "x": 200,
+      "y": 200,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/henhead.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "676942acdde482faed9c6715"
+      }
+    },
+    {
+      "id": "shadow1",
+      "type": "shadow",
+      "x": 401,
+      "y": 200,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/henshad.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "676942acdde482faed9c6716"
+      }
+    },
+    {
+      "id": "segment1",
+      "type": "segment",
+      "x": 1300,
+      "y": 200,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/hentail.png",
+      "isCorrect": true,
+      "_id": {
+        "$oid": "676942acdde482faed9c6717"
+      }
+    },
+    {
+      "id": "segment2",
+      "type": "segment",
+      "x": 900,
+      "y": -50,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/sealtail.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "676942acdde482faed9c6718"
+      }
+    },
+    {
+      "id": "segment3",
+      "type": "segment",
+      "x": 900,
+      "y": 400,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/beartail.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "676942acdde482faed9c6719"
+      }
+    }
+  ],
+  "correctSegment": "segment1",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "676942c5dde482faed9c671c"
+  },
+  "levelId": 5,
+  "sessionId": 3,
+  "segments": [
+    {
+      "id": "animal1",
+      "type": "animal",
+      "x": 380,
+      "y": 200,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/birdtail.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "676942c5dde482faed9c671d"
+      }
+    },
+    {
+      "id": "shadow1",
+      "type": "shadow",
+      "x": 189,
+      "y": 200,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/birdshad.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "676942c5dde482faed9c671e"
+      }
+    },
+    {
+      "id": "segment1",
+      "type": "segment",
+      "x": 900,
+      "y": 450,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/birdhead.png",
+      "isCorrect": true,
+      "_id": {
+        "$oid": "676942c5dde482faed9c671f"
+      }
+    },
+    {
+      "id": "segment2",
+      "type": "segment",
+      "x": 1300,
+      "y": 250,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/camelhead.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "676942c5dde482faed9c6720"
+      }
+    },
+    {
+      "id": "segment3",
+      "type": "segment",
+      "x": 900,
+      "y": 10,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/goat.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "676942c5dde482faed9c6721"
+      }
+    }
+  ],
+  "correctSegment": "segment1",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "676942dcdde482faed9c6724"
+  },
+  "levelId": 6,
+  "sessionId": 3,
+  "segments": [
+    {
+      "id": "animal1",
+      "type": "animal",
+      "x": 200,
+      "y": 200,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/elephanttail.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "676942dcdde482faed9c6725"
+      }
+    },
+    {
+      "id": "shadow1",
+      "type": "shadow",
+      "x": 370,
+      "y": 200,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/elephantshad.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "676942dcdde482faed9c6726"
+      }
+    },
+    {
+      "id": "segment1",
+      "type": "segment",
+      "x": 1300,
+      "y": 200,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/elephanthead.png",
+      "isCorrect": true,
+      "_id": {
+        "$oid": "676942dcdde482faed9c6727"
+      }
+    },
+    {
+      "id": "segment2",
+      "type": "segment",
+      "x": 900,
+      "y": 350,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/henhead.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "676942dcdde482faed9c6728"
+      }
+    },
+    {
+      "id": "segment3",
+      "type": "segment",
+      "x": 900,
+      "y": 50,
+      "width": 310,
+      "height": 310,
+      "src": "assets/images/dolphinhead.png",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "676942dcdde482faed9c6729"
+      }
+    }
+  ],
+  "correctSegment": "segment1",
+  "__v": 0
+}]

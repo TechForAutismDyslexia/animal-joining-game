@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import Draggable from "react-draggable";
-
+import axios from "axios";
 const Level = ({ sessionId, levelId, updateTrialCount, throwConfetti }) => {
   const [levelData, setLevelData] = useState(null);
   const [imageMap, setImageMap] = useState({});
@@ -31,8 +31,9 @@ const Level = ({ sessionId, levelId, updateTrialCount, throwConfetti }) => {
   useEffect(() => {
     const loadData = async () => {
       try {
-        const dataModule = await import(`../assets/session${sessionId}/level${levelId}.json`);
-        const data = dataModule.default;
+        // const dataModule = await import(`../assets/session${sessionId}/level${levelId}.json`);
+        const dataModule = (await axios.get(`http://localhost:4000/segment/${sessionId}/${levelId}`)).data;
+        const data = dataModule;
 
         const tempImageMap = {};
         for (const segment of data.segments) {
