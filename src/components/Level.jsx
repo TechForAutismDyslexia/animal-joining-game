@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Draggable from "react-draggable";
 
-const Level = ({ sessionId, levelId, onNext, onPrev, updateTrialCount, throwConfetti }) => {
+const Level = ({ sessionId, levelId, updateTrialCount, throwConfetti }) => {
   const [levelData, setLevelData] = useState(null);
   const [imageMap, setImageMap] = useState({});
   const [trials, setTrials] = useState(0);
@@ -157,7 +157,8 @@ const Level = ({ sessionId, levelId, onNext, onPrev, updateTrialCount, throwConf
               backgroundRepeat: "no-repeat",
               backgroundSize: "contain",
               left: `${position.x}px`,
-              top: `${position.y}px`
+              top: `${position.y}px`,
+              opacity: segment.type === "shadow" ? 0.25 : 1
             }}
           />
         );
@@ -169,9 +170,15 @@ const Level = ({ sessionId, levelId, onNext, onPrev, updateTrialCount, throwConf
           top: `${150 * scale}px`,
           right: "10px",
           fontSize: `${50 * scale}px`,
+          fontFamily: "Rocher, sans-serif",
+          textAlign: "right",
           zIndex: 2
         }}
       >
+        Session: {sessionId}
+        <br />
+        Level: {levelId}
+        <br />
         Trials: {trials}
       </div>
     </div>

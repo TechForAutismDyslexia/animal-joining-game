@@ -1,42 +1,51 @@
 {
-  "id": 4,
+  "id": 2,
   "segments": [
     {
       "id": "animal1",
       "type": "animal",
-      "x": 200,
-      "y": 100,
+      "x": 339,
+      "y": 200,
       "width": 400,
       "height": 400,
-      "src": "assets/images/goat.png"
+      "src": "assets/images/sealtail.png"
     },
     {
       "id": "shadow1",
       "type": "shadow",
-      "x": 409,
-      "y": 100,
+      "x": 125,
+      "y": 200,
       "width": 400,
       "height": 400,
-      "src": "assets/images/goatshad.png"
+      "src": "assets/images/sealshad.png"
     },
     {
       "id": "segment1",
       "type": "segment",
-      "x": 1000,
-      "y": 400,
+      "x": 900,
+      "y": 450,
       "width": 400,
       "height": 400,
-      "src": "assets/images/goattail.png",
+      "src": "assets/images/sealhead.png",
       "isCorrect": true
     },
     {
       "id": "segment2",
       "type": "segment",
-      "x": 1000,
-      "y": 20,
+      "x": 900,
+      "y": 10,
       "width": 400,
       "height": 400,
-      "src": "assets/images/sheep.png"
+      "src": "assets/images/deer2head.png"
+    },
+    {
+      "id": "segment3",
+      "type": "segment",
+      "x": 1200,
+      "y": 300,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/cowhead.png"
     }
   ],
   "correctSegment": "segment1"

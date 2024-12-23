@@ -1,11 +1,11 @@
 
 @font-face {
   font-family: 'Rocher';
-  src: url('https://assets.codepen.io/9632/RocherColorGX.woff2');
+  src: url('./assets/RocherColorGX.woff2');
 }
 
 body {
-  font-family: 'Rocher', sans-serif; /* Add a fallback font */
+  font-family: 'Rocher', sans-serif;
   text-align: center;
   font-size: 50px;
   height: 100vh;

@@ -8,8 +8,7 @@
       "y": 100,
       "width": 400,
       "height": 400,
-      "src": "assets/images/hippoback.png",
-      "isCorrect": false
+      "src": "assets/images/hippoback.png"
     },
     {
       "id": "shadow1",

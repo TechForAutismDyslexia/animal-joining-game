@@ -1,5 +1,5 @@
 {
-  "id": 2,
+  "id": 6,
   "segments": [
     {
       "id": "animal1",
@@ -8,8 +8,7 @@
       "y": 100,
       "width": 400,
       "height": 400,
-      "src": "assets/images/penghead.png",
-      "isCorrect": false
+      "src": "assets/images/penghead.png"
     },
     {
       "id": "shadow1",
@@ -37,8 +36,7 @@
       "y": 550,
       "width": 400,
       "height": 400,
-      "src": "assets/images/pengtail2.png",
-      "isCorrect": false
+      "src": "assets/images/pengtail2.png"
     }
   ],
   "correctSegment": "segment1"

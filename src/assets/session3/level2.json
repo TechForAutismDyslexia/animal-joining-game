@@ -1,42 +1,42 @@
 {
-  "id": 3,
+  "id": 2,
   "segments": [
     {
       "id": "animal1",
       "type": "animal",
-      "x": 589,
+      "x": 550,
       "y": 100,
-      "width": 455,
-      "height": 455,
-      "src": "assets/images/tigerbody.png"
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/moosetail.png"
     },
     {
       "id": "shadow1",
       "type": "shadow",
-      "x": 200,
+      "x": 279,
       "y": 100,
       "width": 400,
       "height": 400,
-      "src": "assets/images/tigershad.png"
+      "src": "assets/images/mooseshad.png"
     },
     {
       "id": "segment1",
       "type": "segment",
       "x": 1000,
-      "y": 400,
+      "y": 20,
       "width": 400,
       "height": 400,
-      "src": "assets/images/tiger-split.png",
+      "src": "assets/images/moosehead.png",
       "isCorrect": true
     },
     {
       "id": "segment2",
       "type": "segment",
-      "x": 1000,
-      "y": 20,
+      "x": 1080,
+      "y": 400,
       "width": 400,
       "height": 400,
-      "src": "assets/images/cheetahhead.png"
+      "src": "assets/images/goat14.png"
     }
   ],
   "correctSegment": "segment1"

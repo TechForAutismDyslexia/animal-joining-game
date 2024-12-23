@@ -4,39 +4,48 @@
     {
       "id": "animal1",
       "type": "animal",
-      "x": 420,
-      "y": 100,
+      "x": 300,
+      "y": 200,
       "width": 400,
       "height": 400,
-      "src": "assets/images/tail.png"
+      "src": "assets/images/deer2tail.png"
     },
     {
       "id": "shadow1",
       "type": "shadow",
-      "x": 644,
-      "y": 100,
+      "x": 140,
+      "y": 200,
       "width": 400,
       "height": 400,
-      "src": "assets/images/headshad.png"
+      "src": "assets/images/deer2shad.png"
     },
     {
       "id": "segment1",
       "type": "segment",
-      "x": 1000,
-      "y": 400,
+      "x": 1200,
+      "y": 300,
       "width": 400,
       "height": 400,
-      "src": "assets/images/head.png",
+      "src": "assets/images/deer2head.png",
       "isCorrect": true
     },
     {
       "id": "segment2",
       "type": "segment",
-      "x": 1000,
-      "y": 0,
+      "x": 800,
+      "y": 450,
       "width": 400,
       "height": 400,
-      "src": "assets/images/deerhead.png"
+      "src": "assets/images/buffalohead.png"
+    },
+    {
+      "id": "segment3",
+      "type": "segment",
+      "x": 800,
+      "y": 10,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/henhead.png"
     }
   ],
   "correctSegment": "segment1"

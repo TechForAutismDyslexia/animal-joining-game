@@ -1,42 +1,51 @@
 {
-  "id": 4,
+  "id": 6,
   "segments": [
     {
       "id": "animal1",
       "type": "animal",
       "x": 200,
-      "y": 100,
+      "y": 200,
       "width": 400,
       "height": 400,
-      "src": "assets/images/goat.png"
+      "src": "assets/images/elephanttail.png"
     },
     {
       "id": "shadow1",
       "type": "shadow",
-      "x": 409,
-      "y": 100,
+      "x": 370,
+      "y": 200,
       "width": 400,
       "height": 400,
-      "src": "assets/images/goatshad.png"
+      "src": "assets/images/elephantshad.png"
     },
     {
       "id": "segment1",
       "type": "segment",
-      "x": 1000,
-      "y": 400,
+      "x": 1300,
+      "y": 200,
       "width": 400,
       "height": 400,
-      "src": "assets/images/goattail.png",
+      "src": "assets/images/elephanthead.png",
       "isCorrect": true
     },
     {
       "id": "segment2",
       "type": "segment",
-      "x": 1000,
-      "y": 20,
+      "x": 900,
+      "y": 350,
       "width": 400,
       "height": 400,
-      "src": "assets/images/sheep.png"
+      "src": "assets/images/henhead.png"
+    },
+    {
+      "id": "segment3",
+      "type": "segment",
+      "x": 900,
+      "y": 50,
+      "width": 310,
+      "height": 310,
+      "src": "assets/images/dolphinhead.png"
     }
   ],
   "correctSegment": "segment1"

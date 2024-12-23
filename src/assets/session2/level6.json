@@ -1,42 +1,51 @@
 {
-  "id": 5,
+  "id": 6,
   "segments": [
     {
       "id": "animal1",
       "type": "animal",
-      "x": 500,
-      "y": 100,
+      "x": 180,
+      "y": 200,
       "width": 400,
       "height": 400,
-      "src": "assets/images/beartail.png"
+      "src": "assets/images/goosetail.png"
     },
     {
       "id": "shadow1",
       "type": "shadow",
-      "x": 182,
-      "y": 100,
+      "x": 425,
+      "y": 200,
       "width": 400,
       "height": 400,
-      "src": "assets/images/bearshad.png"
+      "src": "assets/images/gooseshad.png"
     },
     {
       "id": "segment1",
       "type": "segment",
-      "x": 1000,
-      "y": 20,
+      "x": 900,
+      "y": 10,
       "width": 400,
       "height": 400,
-      "src": "assets/images/bearhead.png",
+      "src": "assets/images/goosehead.png",
       "isCorrect": true
     },
     {
       "id": "segment2",
       "type": "segment",
-      "x": 1000,
+      "x": 1200,
+      "y": 200,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/henhead2.png"
+    },
+    {
+      "id": "segment3",
+      "type": "segment",
+      "x": 900,
       "y": 400,
       "width": 400,
       "height": 400,
-      "src": "assets/images/pbearhead.png"
+      "src": "assets/images/duckhead.png"
     }
   ],
   "correctSegment": "segment1"

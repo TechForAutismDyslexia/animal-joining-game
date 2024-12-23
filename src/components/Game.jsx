@@ -5,7 +5,7 @@ import "../App.css";
 import InstructionsPopup from "./InstructionsPopup";
 import audio from "../assets/images/audio.png";
 import gob from "../assets/images/goback.webp";
-import last from "../assets/images/last.gif";
+import congratsGIF from "../assets/images/last.gif";
 import inst from "../assets/inst.mp3";
 import instructions from "../assets/instructions.mp3";
 import Level from "./Level";
@@ -109,13 +109,6 @@ const Game = () => {
     setShowInstructions(false);
   };
 
-  const getCurrentSessionTime = () => {
-    if (!startTime) return "00:00";
-    const currentTime = Date.now();
-    const sessionTime = Math.floor((currentTime - startTime) / 1000);
-    return formatTime(sessionTime);
-  };
-
   const renderLevel = () => {
     if (level === -1) {
       return (
@@ -148,8 +141,6 @@ const Game = () => {
         <Level
           sessionId={session}
           levelId={level + 1}
-          onNext={nextLevel}
-          onPrev={prevLevel}
           updateTrialCount={updateTrialCount}
           throwConfetti={throwConfetti}
         />
@@ -161,9 +152,14 @@ const Game = () => {
       return (
         <div className="end-page">
           <h3 className="heading" style={{ fontSize: "50px" }}>
-            Good Job!
+            Good Job! <br />
+            Session {session} Completed
           </h3>
-          <img src={last} style={{ width: "200px", height: "auto" }} alt="Congratulations GIF" />
+          <img
+            src={congratsGIF}
+            style={{ width: "200px", height: "auto" }}
+            alt="Congratulations GIF"
+          />
           <p style={{ fontSize: "40px", fontWeight: "bold" }}>
             Total Time: {formatTime(totalTimeInSeconds)}
           </p>
@@ -172,6 +168,11 @@ const Game = () => {
           <button className="button-74" onClick={replayGame}>
             Replay
           </button>
+          {session <= 2 && (
+            <button className="button-74" onClick={() => handleSessionSelect(session + 1, false)}>
+              Next Session
+            </button>
+          )}
           <div className="goback">
             <img
               src={gob}
@@ -193,10 +194,13 @@ const Game = () => {
     }
   };
 
-  const handleSessionSelect = async (s) => {
+  const handleSessionSelect = async (s, i = true) => {
     playInstructionsAudio(); // Play instructions audio when session is selected
     setSession(s);
-    setShowInstructions(true);
+    setStartTime(0);
+    setEndTime(0);
+    setShowInstructions(i);
+    if (!i) setLevel(0);
   };
 
   const playInstructionsAudio = () => {
@@ -238,7 +242,7 @@ const Game = () => {
         />
       </div>
 
-      {1 <= level <= 6 && session >= 0 && (
+      {level >= 0 && level <= 5 && session >= 0 && (
         <div className="button-container">
           <button
             className="button-74"

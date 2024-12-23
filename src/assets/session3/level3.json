@@ -4,39 +4,48 @@
     {
       "id": "animal1",
       "type": "animal",
-      "x": 420,
-      "y": 100,
+      "x": 369,
+      "y": 200,
       "width": 400,
       "height": 400,
-      "src": "assets/images/tail.png"
+      "src": "assets/images/skunkhead.png"
     },
     {
       "id": "shadow1",
       "type": "shadow",
-      "x": 644,
-      "y": 100,
+      "x": 189,
+      "y": 200,
       "width": 400,
       "height": 400,
-      "src": "assets/images/headshad.png"
+      "src": "assets/images/skunkshad.png"
     },
     {
       "id": "segment1",
       "type": "segment",
-      "x": 1000,
-      "y": 400,
+      "x": 900,
+      "y": 10,
       "width": 400,
       "height": 400,
-      "src": "assets/images/head.png",
+      "src": "assets/images/skunktail.png",
       "isCorrect": true
     },
     {
       "id": "segment2",
       "type": "segment",
-      "x": 1000,
-      "y": 0,
+      "x": 900,
+      "y": 450,
       "width": 400,
       "height": 400,
-      "src": "assets/images/deerhead.png"
+      "src": "assets/images/fishtail.png"
+    },
+    {
+      "id": "segment3",
+      "type": "segment",
+      "x": 1200,
+      "y": 150,
+      "width": 400,
+      "height": 400,
+      "src": "assets/images/goosetail.png"
     }
   ],
   "correctSegment": "segment1"
