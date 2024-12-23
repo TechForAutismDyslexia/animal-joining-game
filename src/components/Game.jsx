@@ -118,7 +118,7 @@ const Game = () => {
               src={gob}
               alt="goback"
               onClick={() => {
-                window.location.href = "https://joywithlearning.com/games";
+                window.location.href = `${window.location.origin}/games`;
               }}
               style={{ width: "50px", height: "50px", cursor: "pointer" }}
             />
@@ -178,7 +178,7 @@ const Game = () => {
               src={gob}
               alt="goback"
               onClick={() => {
-                window.location.reload();
+                window.location.href = `${window.location.origin}/games/animalmatching`;
               }}
               style={{ width: "50px", height: "50px", cursor: "pointer" }}
             />
