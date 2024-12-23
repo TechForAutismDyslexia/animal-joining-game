@@ -32,7 +32,7 @@ const Level = ({ sessionId, levelId, updateTrialCount, throwConfetti }) => {
     const loadData = async () => {
       try {
         // const dataModule = await import(`../assets/session${sessionId}/level${levelId}.json`);
-        const dataModule = (await axios.get(`http://localhost:4000/segment/${sessionId}/${levelId}`)).data;
+        const dataModule = (await axios.get(`https://api.joywithlearning.com/api/animaljoining/segment/${sessionId}/${levelId}`)).data;
         const data = dataModule;
 
         const tempImageMap = {};
